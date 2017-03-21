@@ -2,11 +2,13 @@ package com.userdetails.forms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.FormPresenter;
 
 import butterknife.BindView;
@@ -55,12 +57,11 @@ public class FormActivity extends AppCompatActivity implements FormView {
                     Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
-            intent.putExtra("name", name);
-            intent.putExtra("age", age);
-            intent.putExtra("phoneNumber", phoneNumber);
-            intent.putExtra("address", address);
-
+            Person person = new Person(name, age, phoneNumber, address);
+            intent.putExtra("Person", person);
             startActivity(intent);
+
+
         }
     }
 

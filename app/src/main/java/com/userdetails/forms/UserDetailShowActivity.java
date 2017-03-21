@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.userdetails.forms.model.Person;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -27,10 +29,12 @@ public class UserDetailShowActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        String age = intent.getStringExtra("age");
-        String phoneNumber = intent.getStringExtra("phoneNumber");
-        String address = intent.getStringExtra("address");
+        Person person = intent.getParcelableExtra("Person");
+
+        String name = person.getName();
+        String age = person.getAge();
+        String phoneNumber = person.getPhoneNumber();
+        String address = person.getAddress();
 
         setAllViews(name, age, phoneNumber, address);
     }

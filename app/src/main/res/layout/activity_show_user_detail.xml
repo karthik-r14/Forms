@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/cyan">
+                android:background="@color/yellow">
 
   <TextView
     android:id="@+id/Heading"
@@ -12,17 +12,19 @@
     android:text="@string/show_details"
     android:textAllCaps="true"
     android:textColor="@color/colorPrimaryDark"
-    android:textSize="18dp"
-    android:textStyle="bold"/>
+    android:textSize="20dp"
+    android:textStyle="bold"
+    android:layout_marginTop="10dp"/>
 
   <LinearLayout
     android:id="@id/name_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="13dp"
+    android:orientation="horizontal"
     android:layout_below="@+id/Heading"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="15dp"
-    android:orientation="horizontal">
+    android:layout_alignLeft="@+id/age_layout"
+    android:layout_alignStart="@+id/age_layout">
 
     <TextView
       android:layout_width="wrap_content"

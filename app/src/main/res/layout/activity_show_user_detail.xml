@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cyan">
+
+  <TextView
+    android:id="@+id/Heading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="@string/show_details"
+    android:textAllCaps="true"
+    android:textColor="@color/colorPrimaryDark"
+    android:textSize="18dp"
+    android:textStyle="bold"/>
+
+  <LinearLayout
+    android:id="@id/name_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/Heading"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="10dp"
+      android:text="@string/name"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+
+    <TextView
+      android:id="@+id/name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Karthik"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@id/age_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/name_layout"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="10dp"
+      android:text="@string/age"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+
+    <TextView
+      android:id="@+id/age"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="23"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@id/phone_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/age_layout"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="10dp"
+      android:text="@string/phone_number"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+
+    <TextView
+      android:id="@+id/phone_number"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="9880443410"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@id/address_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/phone_layout"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="10dp"
+      android:text="@string/address"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+
+    <TextView
+      android:id="@+id/address"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hebbal"
+      android:textAllCaps="true"
+      android:textColor="@color/colorPrimaryDark"
+      android:textSize="18dp"
+      android:textStyle="bold"/>
+  </LinearLayout>
+
+</RelativeLayout>

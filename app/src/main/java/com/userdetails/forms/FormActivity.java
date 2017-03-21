@@ -1,5 +1,6 @@
 package com.userdetails.forms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -42,10 +43,24 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
     @OnClick(R.id.submit_button)
     void submitButtonClick() {
-        presenter.validate(name.getText().toString(), age.getText().toString(), phoneNumber.getText().toString(), address.getText().toString());
+        String name = this.name.getText().toString();
+        String age = this.age.getText().toString();
+        String phoneNumber = this.phoneNumber.getText().toString();
+        String address = this.address.getText().toString();
+
+        presenter.validate(name, age, phoneNumber, address);
 
         if (!presenter.hasErrors()) {
-            Toast.makeText(getApplicationContext(), R.string.submit_message, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.submit_message,
+                    Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
+            intent.putExtra("name", name);
+            intent.putExtra("age", age);
+            intent.putExtra("phoneNumber", phoneNumber);
+            intent.putExtra("address", address);
+
+            startActivity(intent);
         }
     }
 

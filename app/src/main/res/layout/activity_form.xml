@@ -24,6 +24,7 @@
       android:text="@string/form"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="20dp"
+      android:textAllCaps="true"
       android:textStyle="bold"/>
 
     <LinearLayout
@@ -43,6 +44,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:textAllCaps="true"
         />
 
       <EditText
@@ -80,6 +82,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:textAllCaps="true"
         />
 
       <EditText
@@ -120,6 +123,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:textAllCaps="true"
         />
 
       <EditText
@@ -157,6 +161,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:textAllCaps="true"
         />
 
       <EditText

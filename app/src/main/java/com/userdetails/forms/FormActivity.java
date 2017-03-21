@@ -30,7 +30,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
     @BindView(R.id.address_error)
     TextView addressError;
 
-    FormPresenter presenter;
+    private FormPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,20 +52,24 @@ public class FormActivity extends AppCompatActivity implements FormView {
     @Override
     public void nameErrorVisibility(int visibility) {
         nameError.setVisibility(visibility);
+        nameError.requestFocus();
     }
 
     @Override
     public void ageErrorVisibility(int visibility) {
         ageError.setVisibility(visibility);
+        ageError.requestFocus();
     }
 
     @Override
     public void phoneErrorVisibility(int visibility) {
         phoneError.setVisibility(visibility);
+        phoneError.requestFocus();
     }
 
     @Override
     public void addressErrorVisibility(int visibility) {
         addressError.setVisibility(visibility);
+        addressError.requestFocus();
     }
 }

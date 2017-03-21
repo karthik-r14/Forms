@@ -56,6 +56,8 @@
         android:id="@+id/name_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:visibility="gone"
         android:textColor="@color/red"
         android:text="@string/name_error"
@@ -91,6 +93,8 @@
 
       <TextView
         android:id="@+id/age_error"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -128,6 +132,8 @@
 
       <TextView
         android:id="@+id/phone_error"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -163,6 +169,8 @@
 
       <TextView
         android:id="@+id/address_error"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

@@ -6,8 +6,8 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class FormPresenter {
-    FormView formView;
-    boolean errors;
+    private FormView formView;
+    private boolean errors;
 
     public FormPresenter(FormView formView) {
         this.formView = formView;

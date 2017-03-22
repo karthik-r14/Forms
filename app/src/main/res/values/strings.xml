@@ -16,4 +16,8 @@
   <string name="submit">Submit</string>
   <string name="submit_message">Thank you for submitting your details.</string>
   <string name="show_details">User Details</string>
+  <string name="submission">Submission</string>
+  <string name="message">Are you sure you want to submit these details.</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Cancel</string>
 </resources>

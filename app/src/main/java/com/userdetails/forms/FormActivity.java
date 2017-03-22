@@ -1,5 +1,6 @@
 package com.userdetails.forms;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -45,23 +46,39 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
     @OnClick(R.id.submit_button)
     void submitButtonClick() {
-        String name = this.name.getText().toString();
-        String age = this.age.getText().toString();
-        String phoneNumber = this.phoneNumber.getText().toString();
-        String address = this.address.getText().toString();
+        final String name = this.name.getText().toString();
+        final String age = this.age.getText().toString();
+        final String phoneNumber = this.phoneNumber.getText().toString();
+        final String address = this.address.getText().toString();
 
         presenter.validate(name, age, phoneNumber, address);
 
         if (!presenter.hasErrors()) {
-            Toast.makeText(getApplicationContext(), R.string.submit_message,
-                    Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
-            Person person = new Person(name, age, phoneNumber, address);
-            intent.putExtra("Person", person);
-            startActivity(intent);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+            builder.setTitle(R.string.submission)
+                    .setMessage(R.string.message)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), R.string.submit_message,
+                                    Toast.LENGTH_LONG).show();
 
+                            Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
+                            Person person = new Person(name, age, phoneNumber, address);
+                            intent.putExtra("Person", person);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(false);
+            dialog.show();
         }
     }
 

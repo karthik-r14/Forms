@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.userdetails.forms.model.Person;
 
@@ -35,6 +35,8 @@ public class UserDetailShowActivity extends AppCompatActivity {
     @BindView(R.id.image_text)
     TextView imageText;
 
+    private boolean hadTakenPhoto;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +57,12 @@ public class UserDetailShowActivity extends AppCompatActivity {
 
     @OnClick(R.id.image)
     public void onImageClick() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA_REQUEST_CODE);
+        if (!hadTakenPhoto) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, CAMERA_REQUEST_CODE);
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.camera_text , Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -67,6 +73,7 @@ public class UserDetailShowActivity extends AppCompatActivity {
             if (photo != null) {
                 image.setImageBitmap(photo);
                 imageTextVisibility(GONE);
+                hadTakenPhoto = true;
             }
         }
     }

@@ -25,4 +25,5 @@
   <string name="sample_age">23</string>
   <string name="sample_phone_number">9880443410</string>
   <string name="sample_address">Hebbal</string>
+  <string name="camera_text">You have already clicked a photo.</string>
 </resources>

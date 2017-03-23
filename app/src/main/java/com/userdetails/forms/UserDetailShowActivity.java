@@ -1,18 +1,28 @@
 package com.userdetails.forms;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.userdetails.forms.model.Person;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static android.view.View.GONE;
 
 
 public class UserDetailShowActivity extends AppCompatActivity {
+    public static final int REQUEST_CODE = 100;
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -21,6 +31,10 @@ public class UserDetailShowActivity extends AppCompatActivity {
     TextView phoneNumber;
     @BindView(R.id.address)
     TextView address;
+    @BindView(R.id.image)
+    ImageView image;
+    @BindView(R.id.image_text)
+    TextView imageText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +51,29 @@ public class UserDetailShowActivity extends AppCompatActivity {
         String address = person.getAddress();
 
         setAllViews(name, age, phoneNumber, address);
+
+    }
+
+    @OnClick(R.id.image)
+    public void onImageClick() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            if (photo != null) {
+                image.setImageBitmap(photo);
+                hideImageText();
+            }
+        }
+    }
+
+    private void hideImageText() {
+        imageText.setVisibility(GONE);
     }
 
     private void setAllViews(String name, String age, String phoneNumber, String address) {

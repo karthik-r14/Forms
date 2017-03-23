@@ -45,7 +45,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
     }
 
     @OnClick(R.id.submit_button)
-    void submitButtonClick() {
+    public void submitButtonClick() {
         final String name = this.name.getText().toString();
         final String age = this.age.getText().toString();
         final String phoneNumber = this.phoneNumber.getText().toString();

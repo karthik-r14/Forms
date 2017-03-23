@@ -12,17 +12,42 @@
     android:text="@string/show_details"
     android:textAllCaps="true"
     android:textColor="@color/colorPrimaryDark"
-    android:textSize="20dp"
+    android:textSize="20sp"
     android:textStyle="bold"
     android:layout_marginTop="10dp"/>
 
+
+  <RelativeLayout
+    android:id="@+id/image_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/Heading"
+    android:layout_centerHorizontal="true">
+
+    <ImageView
+      android:id="@+id/image"
+      android:layout_width="160dp"
+      android:layout_height="150dp"
+      android:background="@color/colorAccent"
+      />
+
+    <TextView
+      android:id="@+id/image_text"
+      android:layout_marginTop="65dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/image_text"/>
+
+
+  </RelativeLayout>
   <LinearLayout
     android:id="@id/name_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="13dp"
+    android:layout_marginLeft="15dp"
     android:orientation="horizontal"
-    android:layout_below="@+id/Heading"
+    android:layout_below="@+id/image_layout"
     android:layout_alignLeft="@+id/age_layout"
     android:layout_alignStart="@+id/age_layout">
 
@@ -34,7 +59,8 @@
       android:textAllCaps="true"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="18dp"
-      android:textStyle="bold"/>
+      android:textStyle="bold"
+      />
 
     <TextView
       android:id="@+id/name"
@@ -52,14 +78,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/name_layout"
-    android:layout_marginLeft="15dp"
     android:layout_marginTop="15dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    >
 
     <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginRight="10dp"
+      android:layout_marginLeft="15dp"
       android:text="@string/age"
       android:textAllCaps="true"
       android:textColor="@color/colorPrimaryDark"

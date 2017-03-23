@@ -8,17 +8,19 @@
     android:label="@string/form"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".FormActivity">
+    <activity
+      android:name=".FormActivity"
+      android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
 
-    <activity android:name=".UserDetailShowActivity"
-      android:label="@string/show_details">
-
+    <activity
+      android:name=".UserDetailShowActivity"
+      android:label="@string/show_details"
+      android:screenOrientation="portrait">
     </activity>
   </application>
 

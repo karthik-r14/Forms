@@ -57,7 +57,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            builder.setTitle(R.string.submission)
+            builder.setTitle(R.string.form_submission)
                     .setMessage(R.string.message)
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {

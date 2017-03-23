@@ -1,11 +1,13 @@
 package com.userdetails.forms;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,11 +60,28 @@ public class UserDetailShowActivity extends AppCompatActivity {
     @OnClick(R.id.image)
     public void onImageClick() {
         if (!hadTakenPhoto) {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, CAMERA_REQUEST_CODE);
+            showAlertDialogAndLaunchCamera(R.string.note, R.string.camera_message);
         } else {
             Toast.makeText(getApplicationContext(), R.string.camera_text , Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void showAlertDialogAndLaunchCamera(int title, int message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(title)
+               .setMessage(message)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(intent, CAMERA_REQUEST_CODE);
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     @Override

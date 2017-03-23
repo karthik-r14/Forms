@@ -26,4 +26,6 @@
   <string name="sample_phone_number">9880443410</string>
   <string name="sample_address">Hebbal</string>
   <string name="camera_text">You have already clicked a photo.</string>
+  <string name="note">Note</string>
+  <string name="camera_message">You must hold the phone in landscape mode to click a photo.</string>
 </resources>

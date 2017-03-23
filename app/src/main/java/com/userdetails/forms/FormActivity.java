@@ -46,40 +46,43 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
     @OnClick(R.id.submit_button)
     public void submitButtonClick() {
-        final String name = this.name.getText().toString();
-        final String age = this.age.getText().toString();
-        final String phoneNumber = this.phoneNumber.getText().toString();
-        final String address = this.address.getText().toString();
+         String name = this.name.getText().toString();
+         String age = this.age.getText().toString();
+         String phoneNumber = this.phoneNumber.getText().toString();
+         String address = this.address.getText().toString();
 
         presenter.validate(name, age, phoneNumber, address);
 
         if (!presenter.hasErrors()) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.setTitle(R.string.form_submission)
-                    .setMessage(R.string.message)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Toast.makeText(getApplicationContext(), R.string.submit_message,
-                                    Toast.LENGTH_LONG).show();
-
-                            Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
-                            Person person = new Person(name, age, phoneNumber, address);
-                            intent.putExtra("Person", person);
-                            startActivity(intent);
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-
-                        }
-                    });
-
-            AlertDialog dialog = builder.create();
-            dialog.setCancelable(false);
-            dialog.show();
+            showAlertDialog(name, age, phoneNumber, address);
         }
+    }
+
+    private void showAlertDialog(final String name,final String age,final String phoneNumber,final String address) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.form_submission)
+                .setMessage(R.string.message)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Toast.makeText(getApplicationContext(), R.string.submit_message,
+                                Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
+                        Person person = new Person(name, age, phoneNumber, address);
+                        intent.putExtra("Person", person);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     @Override

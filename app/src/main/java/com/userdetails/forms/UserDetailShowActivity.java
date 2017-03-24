@@ -63,11 +63,15 @@ public class UserDetailShowActivity extends AppCompatActivity {
         if (!hadTakenPhoto) {
             showAlertDialogAndLaunchCamera(R.string.note, R.string.camera_message);
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_LONG);
-            toast.setView(getLayoutInflater().inflate(R.layout.layout_custom_toast, (ViewGroup) findViewById(R.id.custom_layout)));
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-            toast.show();
+            showCustomToast();
         }
+    }
+
+    private void showCustomToast() {
+        Toast toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_LONG);
+        toast.setView(getLayoutInflater().inflate(R.layout.layout_custom_toast, (ViewGroup) findViewById(R.id.custom_layout)));
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.show();
     }
 
     private void showAlertDialogAndLaunchCamera(int title, int message) {

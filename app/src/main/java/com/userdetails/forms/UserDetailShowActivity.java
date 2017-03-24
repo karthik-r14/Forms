@@ -9,6 +9,8 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,7 +63,10 @@ public class UserDetailShowActivity extends AppCompatActivity {
         if (!hadTakenPhoto) {
             showAlertDialogAndLaunchCamera(R.string.note, R.string.camera_message);
         } else {
-            Toast.makeText(getApplicationContext(), R.string.camera_text , Toast.LENGTH_LONG).show();
+            Toast toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_LONG);
+            toast.setView(getLayoutInflater().inflate(R.layout.layout_custom_toast, (ViewGroup) findViewById(R.id.custom_layout)));
+            toast.setGravity(Gravity.BOTTOM, 0, 0);
+            toast.show();
         }
     }
 
@@ -69,7 +74,7 @@ public class UserDetailShowActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle(title)
-               .setMessage(message)
+                .setMessage(message)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

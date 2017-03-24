@@ -28,4 +28,5 @@
   <string name="camera_text">You have already clicked a photo.</string>
   <string name="note">Note</string>
   <string name="camera_message">While clicking the pic ensure that the phone is held in the landscape mode.</string>
+  <string name="phone_camera">This is a phone with its camera turned on.</string>
 </resources>

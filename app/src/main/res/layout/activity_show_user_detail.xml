@@ -135,7 +135,7 @@
   </LinearLayout>
 
   <LinearLayout
-    android:id="@id/address_layout"
+    android:id="@id/email_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/phone_layout"
@@ -147,18 +147,17 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginRight="10dp"
-      android:text="@string/address"
+      android:text="@string/email"
       android:textAllCaps="true"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="18dp"
       android:textStyle="bold"/>
 
     <TextView
-      android:id="@+id/address"
+      android:id="@+id/email"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/sample_address"
-      android:textAllCaps="true"
+      android:text="@string/sample_email"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="18dp"
       android:textStyle="bold"/>

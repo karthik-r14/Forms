@@ -23,16 +23,16 @@ public class FormActivity extends AppCompatActivity implements FormView {
     EditText age;
     @BindView(R.id.phone_number)
     EditText phoneNumber;
-    @BindView(R.id.address)
-    EditText address;
+    @BindView(R.id.email)
+    EditText email;
     @BindView(R.id.name_error)
     TextView nameError;
     @BindView(R.id.age_error)
     TextView ageError;
     @BindView(R.id.phone_error)
     TextView phoneError;
-    @BindView(R.id.address_error)
-    TextView addressError;
+    @BindView(R.id.email_error)
+    TextView emailError;
 
     private FormPresenter presenter;
 
@@ -49,12 +49,12 @@ public class FormActivity extends AppCompatActivity implements FormView {
          String name = this.name.getText().toString();
          String age = this.age.getText().toString();
          String phoneNumber = this.phoneNumber.getText().toString();
-         String address = this.address.getText().toString();
+         String email = this.email.getText().toString();
 
-        presenter.validate(name, age, phoneNumber, address);
+        presenter.validate(name, age, phoneNumber, email);
 
         if (!presenter.hasErrors()) {
-            showAlertDialog(name, age, phoneNumber, address);
+            showAlertDialog(name, age, phoneNumber, email);
         }
     }
 
@@ -104,8 +104,8 @@ public class FormActivity extends AppCompatActivity implements FormView {
     }
 
     @Override
-    public void addressErrorVisibility(int visibility) {
-        addressError.setVisibility(visibility);
-        addressError.requestFocus();
+    public void emailErrorVisibility(int visibility) {
+        emailError.setVisibility(visibility);
+        emailError.requestFocus();
     }
 }

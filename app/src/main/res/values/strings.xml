@@ -7,9 +7,9 @@
   <string name="age">Age : </string>
   <string name="enter_age">Enter your age</string>
   <string name="age_error">Age should not be empty.</string>
-  <string name="address">Address : </string>
-  <string name="enter_address">Enter your address</string>
-  <string name="address_error">Address should not be empty.</string>
+  <string name="email">Email : </string>
+  <string name="enter_email">Enter your email</string>
+  <string name="email_error">Email should not be empty.</string>
   <string name="phone_number">Phone number : </string>
   <string name="enter_phone_number">Enter your phone number</string>
   <string name="phone_error">Phone number should not be empty.</string>
@@ -24,7 +24,7 @@
   <string name="sample_name">Karthik</string>
   <string name="sample_age">23</string>
   <string name="sample_phone_number">9880443410</string>
-  <string name="sample_address">Hebbal</string>
+  <string name="sample_email">karthikr1493@gmail.com</string>
   <string name="camera_text">You have already clicked a photo.</string>
   <string name="note">Note</string>
   <string name="camera_message">You must hold the phone in landscape mode to click a photo.</string>

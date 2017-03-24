@@ -7,5 +7,5 @@ public interface FormView {
 
     void phoneErrorVisibility(int visibility);
 
-    void addressErrorVisibility(int visibility);
+    void emailErrorVisibility(int visibility);
 }

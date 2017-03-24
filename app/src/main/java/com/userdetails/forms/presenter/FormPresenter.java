@@ -13,7 +13,7 @@ public class FormPresenter {
         this.formView = formView;
     }
 
-    public void validate(String name, String age, String phoneNumber, String address) {
+    public void validate(String name, String age, String phoneNumber, String email) {
         hideAllErrors();
 
         if(name.trim().isEmpty()) {
@@ -31,9 +31,9 @@ public class FormPresenter {
             formView.phoneErrorVisibility(VISIBLE);
         }
 
-        if(address.trim().isEmpty()) {
+        if(email.trim().isEmpty()) {
             errors = true;
-            formView.addressErrorVisibility(VISIBLE);
+            formView.emailErrorVisibility(VISIBLE);
         }
     }
 
@@ -42,7 +42,7 @@ public class FormPresenter {
         formView.nameErrorVisibility(GONE);
         formView.ageErrorVisibility(GONE);
         formView.phoneErrorVisibility(GONE);
-        formView.addressErrorVisibility(GONE);
+        formView.emailErrorVisibility(GONE);
     }
 
     public boolean hasErrors() {

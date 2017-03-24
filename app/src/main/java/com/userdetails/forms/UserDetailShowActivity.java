@@ -30,8 +30,8 @@ public class UserDetailShowActivity extends AppCompatActivity {
     TextView age;
     @BindView(R.id.phone_number)
     TextView phoneNumber;
-    @BindView(R.id.address)
-    TextView address;
+    @BindView(R.id.email)
+    TextView email;
     @BindView(R.id.image)
     ImageView image;
     @BindView(R.id.image_text)
@@ -51,9 +51,9 @@ public class UserDetailShowActivity extends AppCompatActivity {
         String name = person.getName();
         String age = person.getAge();
         String phoneNumber = person.getPhoneNumber();
-        String address = person.getAddress();
+        String email = person.getEmail();
 
-        setAllViews(name, age, phoneNumber, address);
+        setAllViews(name, age, phoneNumber, email);
 
     }
 
@@ -101,10 +101,10 @@ public class UserDetailShowActivity extends AppCompatActivity {
         imageText.setVisibility(visibility);
     }
 
-    private void setAllViews(String name, String age, String phoneNumber, String address) {
+    private void setAllViews(String name, String age, String phoneNumber, String email) {
         this.name.setText(name);
         this.age.setText(age);
         this.phoneNumber.setText(phoneNumber);
-        this.address.setText(address);
+        this.email.setText(email);
     }
 }

@@ -91,14 +91,10 @@ public class UserDetailShowActivity extends AppCompatActivity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             if (photo != null) {
                 image.setImageBitmap(photo);
-                imageTextVisibility(GONE);
+                imageText.setVisibility(GONE);
                 hadTakenPhoto = true;
             }
         }
-    }
-
-    private void imageTextVisibility(int visibility) {
-        imageText.setVisibility(visibility);
     }
 
     private void setAllViews(String name, String age, String phoneNumber, String email) {

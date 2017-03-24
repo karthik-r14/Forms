@@ -14,9 +14,9 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class FormPresenterTest {
     @Mock
-    FormView view;
+    private FormView view;
 
-    FormPresenter presenter;
+    private FormPresenter presenter;
 
     @Before
     public void setUp() throws Exception {
@@ -88,7 +88,7 @@ public class FormPresenterTest {
     }
 
     @Test
-    public void shouldShowAddressErrorWhenAddressIsEmpty() throws Exception {
+    public void shouldShowEmailErrorWhenEmailIsEmpty() throws Exception {
         String name = "Karthik";
         String age = "23";
         String phoneNumber = "9880443410";

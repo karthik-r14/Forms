@@ -54,7 +54,6 @@ public class UserDetailShowActivity extends AppCompatActivity {
         String email = person.getEmail();
 
         setAllViews(name, age, phoneNumber, email);
-
     }
 
     @OnClick(R.id.image)

@@ -27,5 +27,5 @@
   <string name="sample_email">karthikr1493@gmail.com</string>
   <string name="camera_text">You have already clicked a photo.</string>
   <string name="note">Note</string>
-  <string name="camera_message">You must hold the phone in landscape mode to click a photo.</string>
+  <string name="camera_message">While clicking the pic ensure that the phone is held in the landscape mode.</string>
 </resources>

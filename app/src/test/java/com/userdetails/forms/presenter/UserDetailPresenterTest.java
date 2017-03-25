@@ -1,5 +1,7 @@
 package com.userdetails.forms.presenter;
 
+import android.graphics.Bitmap;
+
 import com.userdetails.forms.R;
 import com.userdetails.forms.UserDetailView;
 
@@ -7,7 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import static org.junit.Assert.*;
+import static android.view.View.GONE;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -42,5 +45,15 @@ public class UserDetailPresenterTest {
 
         verify(view, never()).showAlertDialogAndLaunchCamera(R.string.note, R.string.camera_message);
         verify(view).showCustomToast();
+    }
+
+    @Test
+    public void shouldSetImageViewAndImageTextVisibilityIfPhotoIsClicked() throws Exception {
+        Bitmap photo = mock(Bitmap.class);
+
+        presenter.setImageLayoutBasedOnPhoto(photo);
+
+        verify(view).imageTextVisibility(GONE);
+        verify(view).setImageView(photo);
     }
 }

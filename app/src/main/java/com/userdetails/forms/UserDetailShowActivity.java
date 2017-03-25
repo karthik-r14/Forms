@@ -75,6 +75,16 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void imageTextVisibility(int visibility) {
+        imageText.setVisibility(GONE);
+    }
+
+    @Override
+    public void setImageView(Bitmap photo) {
+        image.setImageBitmap(photo);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -98,11 +108,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            if (photo != null) {
-                image.setImageBitmap(photo);
-                imageText.setVisibility(GONE);
-                hadTakenPhoto = true;
-            }
+            hadTakenPhoto = true;
+            presenter.setImageLayoutBasedOnPhoto(photo);
         }
     }
 

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.userdetails.forms.model.Person;
+import com.userdetails.forms.presenter.UserDetailPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +25,7 @@ import butterknife.OnClick;
 import static android.view.View.GONE;
 
 
-public class UserDetailShowActivity extends AppCompatActivity {
+public class UserDetailShowActivity extends AppCompatActivity implements UserDetailView {
     public static final int CAMERA_REQUEST_CODE = 100;
     @BindView(R.id.name)
     TextView name;
@@ -40,12 +41,14 @@ public class UserDetailShowActivity extends AppCompatActivity {
     TextView imageText;
 
     private boolean hadTakenPhoto;
+    private UserDetailPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_user_detail);
         ButterKnife.bind(this);
+        presenter = new UserDetailPresenter(this);
 
         Intent intent = getIntent();
         Person person = intent.getParcelableExtra("Person");
@@ -60,21 +63,19 @@ public class UserDetailShowActivity extends AppCompatActivity {
 
     @OnClick(R.id.image)
     public void onImageClick() {
-        if (!hadTakenPhoto) {
-            showAlertDialogAndLaunchCamera(R.string.note, R.string.camera_message);
-        } else {
-            showCustomToast();
-        }
+        presenter.onImageClick(hadTakenPhoto);
     }
 
-    private void showCustomToast() {
+    @Override
+    public void showCustomToast() {
         Toast toast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_LONG);
         toast.setView(getLayoutInflater().inflate(R.layout.layout_custom_toast, (ViewGroup) findViewById(R.id.custom_layout)));
         toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.show();
     }
 
-    private void showAlertDialogAndLaunchCamera(int title, int message) {
+    @Override
+    public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle(title)

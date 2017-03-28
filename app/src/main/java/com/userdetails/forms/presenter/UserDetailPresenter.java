@@ -22,7 +22,6 @@ public class UserDetailPresenter {
         }
     }
 
-
     public void setImageLayoutBasedOnPhoto(Bitmap photo) {
         if(photo != null) {
             view.setImageView(photo);

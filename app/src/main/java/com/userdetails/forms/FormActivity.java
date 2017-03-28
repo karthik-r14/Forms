@@ -60,7 +60,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
     private void showAlertDialog(final String name,final String age,final String phoneNumber,final String address) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
+        builder.setIcon(R.drawable.form_icon);
         builder.setTitle(R.string.form_submission)
                 .setMessage(R.string.message)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {

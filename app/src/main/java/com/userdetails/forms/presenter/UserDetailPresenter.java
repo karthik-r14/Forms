@@ -3,6 +3,7 @@ package com.userdetails.forms.presenter;
 import android.graphics.Bitmap;
 
 import com.userdetails.forms.R;
+import com.userdetails.forms.UserDetailShowActivity;
 import com.userdetails.forms.UserDetailView;
 
 import static android.view.View.GONE;
@@ -23,9 +24,21 @@ public class UserDetailPresenter {
     }
 
     public void setImageLayoutBasedOnPhoto(Bitmap photo) {
-        if(photo != null) {
+        if (photo != null) {
             view.setImageView(photo);
             view.imageTextVisibility(GONE);
+        }
+    }
+
+    public void onMenuItemClick(String menuItemType) {
+        switch (menuItemType) {
+            case UserDetailShowActivity.ABOUT_US:
+                view.startAboutUsActivity();
+                break;
+
+            case UserDetailShowActivity.RATE_US:
+                view.showRateUsDialog();
+                break;
         }
     }
 }

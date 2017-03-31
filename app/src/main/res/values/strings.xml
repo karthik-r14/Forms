@@ -29,4 +29,7 @@
   <string name="note">Note</string>
   <string name="camera_message">While clicking the pic ensure that the phone is held in the landscape mode.</string>
   <string name="phone_camera">This is a phone with its camera turned on.</string>
+  <string name="about_us">About us</string>
+  <string name="rate_us">Rate us</string>
+  <string name="settings">Settings</string>
 </resources>

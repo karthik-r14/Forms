@@ -10,4 +10,10 @@ public interface UserDetailView {
     void imageTextVisibility(int visibility);
 
     void setImageView(Bitmap photo);
+
+    void startAboutUsActivity();
+
+    void showRateUsDialog();
+
+    void startSettingsActivity();
 }

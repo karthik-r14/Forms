@@ -1,6 +1,7 @@
 package com.userdetails.forms;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,6 +11,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +31,9 @@ import static android.view.View.GONE;
 
 public class UserDetailShowActivity extends AppCompatActivity implements UserDetailView {
     public static final int CAMERA_REQUEST_CODE = 100;
+    public static final String ABOUT_US = "AboutUs";
+    public static final String RATE_US = "RateUs";
+    public static final String SETTINGS = "Settings";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -85,6 +92,21 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startAboutUsActivity() {
+
+    }
+
+    @Override
+    public void showRateUsDialog() {
+
+    }
+
+    @Override
+    public void startSettingsActivity() {
+
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -118,5 +140,28 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
         this.age.setText(age);
         this.phoneNumber.setText(phoneNumber);
         this.email.setText(email);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about_us:
+                presenter.onMenuItemClick(ABOUT_US);
+                return true;
+            case R.id.rate_us:
+                presenter.onMenuItemClick(RATE_US);
+                return true;
+            case R.id.settings:
+                presenter.onMenuItemClick(SETTINGS);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.userdetails.forms.presenter;
 import android.graphics.Bitmap;
 
 import com.userdetails.forms.R;
+import com.userdetails.forms.UserDetailShowActivity;
 import com.userdetails.forms.UserDetailView;
 
 import org.junit.Before;
@@ -55,5 +56,27 @@ public class UserDetailPresenterTest {
 
         verify(view).imageTextVisibility(GONE);
         verify(view).setImageView(photo);
+    }
+
+    @Test
+    public void shouldStartAboutUsActivityWhenAboutUsMenuItemIsClicked() throws Exception {
+
+        presenter.onMenuItemClick(UserDetailShowActivity.ABOUT_US);
+
+        verify(view).startAboutUsActivity();
+    }
+
+    @Test
+    public void shouldShowRateUsDialogWhenRateUsMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.RATE_US);
+
+        verify(view).showRateUsDialog();
+    }
+
+    @Test
+    public void shouldShowSettingsActivityWhenSettingMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.SETTINGS);
+
+        verify(view).startSettingsActivity();
     }
 }

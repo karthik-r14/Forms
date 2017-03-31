@@ -14,7 +14,7 @@
 
   <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
       android:id="@+id/Heading"
@@ -23,7 +23,7 @@
       android:layout_centerHorizontal="true"
       android:text="@string/form"
       android:textColor="@color/colorPrimaryDark"
-      android:textSize="20dp"
+      android:textSize="20sp"
       android:textAllCaps="true"
       android:textStyle="bold"/>
 
@@ -42,7 +42,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/name"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         />
@@ -80,7 +80,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/age"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         />
@@ -121,7 +121,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/phone_number"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         />
@@ -159,7 +159,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/email"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         />
@@ -169,7 +169,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_email"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:inputType="textEmailAddress"/>
 
       <TextView
         android:id="@+id/email_error"

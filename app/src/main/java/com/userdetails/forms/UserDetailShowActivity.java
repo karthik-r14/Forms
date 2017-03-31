@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
+import com.userdetails.forms.view.about_us.AboutUsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -93,7 +94,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public void startAboutUsActivity() {
-
+        Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);
     }
 
     @Override

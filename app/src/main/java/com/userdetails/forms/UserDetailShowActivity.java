@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
+import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -100,7 +101,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public void showRateUsDialog() {
-
+        RateUsDialogFragment.newInstance()
+        .show(getFragmentManager(), RateUsDialogFragment.TAG);
     }
 
     @Override

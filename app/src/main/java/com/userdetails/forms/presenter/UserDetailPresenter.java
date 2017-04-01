@@ -39,6 +39,10 @@ public class UserDetailPresenter {
             case UserDetailShowActivity.RATE_US:
                 view.showRateUsDialog();
                 break;
+
+            case UserDetailShowActivity.SETTINGS:
+                view.startSettingsActivity();
+                break;
         }
     }
 }

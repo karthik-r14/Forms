@@ -4,13 +4,38 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="com.userdetails.forms.view.about_us.AboutUsActivity"
-  android:orientation="vertical">
+  android:orientation="vertical"
+  tools:context="com.userdetails.forms.view.about_us.AboutUsActivity">
 
   <WebView
     android:id="@+id/web_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"/>
+    android:layout_centerHorizontal="true"
+    android:visibility="gone"/>
+
+  <LinearLayout
+    android:id="@+id/no_internet_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/no_internet_connection"
+      android:textSize="16sp"
+      android:textStyle="bold"/>
+
+    <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/retry"
+      android:textAllCaps="true"/>
+  </LinearLayout>
 
 </RelativeLayout>

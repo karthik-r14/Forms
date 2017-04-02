@@ -1,7 +1,6 @@
 package com.userdetails.forms;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -102,7 +101,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     @Override
     public void showRateUsDialog() {
         RateUsDialogFragment.newInstance()
-        .show(getFragmentManager(), RateUsDialogFragment.TAG);
+                .show(getFragmentManager(), RateUsDialogFragment.TAG);
     }
 
     @Override

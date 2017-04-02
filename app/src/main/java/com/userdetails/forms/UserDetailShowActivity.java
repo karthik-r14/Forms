@@ -22,6 +22,7 @@ import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
 import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
+import com.userdetails.forms.view.settings.SettingsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,7 +107,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public void startSettingsActivity() {
-
+        Intent intent = new Intent(UserDetailShowActivity.this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     @Override

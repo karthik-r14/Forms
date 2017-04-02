@@ -37,4 +37,5 @@
   <string name="no_internet_connection">Oops! There is no internet connection</string>
   <string name="retry">retry</string>
   <string name="no_internet">There is no internet.</string>
+  <string name="seebar_progress">Seekbar Progress:</string>
 </resources>

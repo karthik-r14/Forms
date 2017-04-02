@@ -24,8 +24,13 @@
       android:label="@string/show_details"
       android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".view.about_us.AboutUsActivity"
+    <activity
+      android:name=".view.about_us.AboutUsActivity"
       android:label="@string/about_us"
+      android:screenOrientation="portrait">
+    </activity>
+    <activity android:name=".view.settings.SettingsActivity"
+      android:label="@string/settings"
       android:screenOrientation="portrait">
     </activity>
   </application>

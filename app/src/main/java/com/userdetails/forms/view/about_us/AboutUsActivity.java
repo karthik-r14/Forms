@@ -5,9 +5,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.userdetails.forms.BuildConfig;
 import com.userdetails.forms.R;
@@ -15,6 +18,9 @@ import com.userdetails.forms.presenter.AboutUsPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static android.view.View.GONE;
 
 public class AboutUsActivity extends AppCompatActivity implements AboutUsView {
 
@@ -33,10 +39,14 @@ public class AboutUsActivity extends AppCompatActivity implements AboutUsView {
         ButterKnife.bind(this);
         presenter = new AboutUsPresenter(this);
 
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(URL);
+        loadWebViewUrl();
 
         presenter.showAboutUsScreen(isConnectivityAvailable());
+    }
+
+    private void loadWebViewUrl() {
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl(URL);
     }
 
     @Override
@@ -47,6 +57,20 @@ public class AboutUsActivity extends AppCompatActivity implements AboutUsView {
     @Override
     public void setNoInternetScreenVisibility(int visibility) {
         noInternetLayout.setVisibility(visibility);
+    }
+
+    @OnClick(R.id.retry)
+    public void onRetryButtonClick() {
+        setNoInternetScreenVisibility(GONE);
+        setWebViewVisibility(GONE);
+        loadWebViewUrl();
+        boolean connectivityAvailable = isConnectivityAvailable();
+
+        if(!connectivityAvailable) {
+            Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
+        }
+
+        presenter.showAboutUsScreen(connectivityAvailable);
     }
 
     private boolean isConnectivityAvailable() {

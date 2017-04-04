@@ -11,7 +11,7 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
     <activity
-      android:name=".FormActivity"
+      android:name=".view.form.FormActivity"
       android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -20,7 +20,7 @@
       </intent-filter>
     </activity>
     <activity
-      android:name=".UserDetailShowActivity"
+      android:name=".view.show_user_details.UserDetailShowActivity"
       android:label="@string/show_details"
       android:screenOrientation="portrait">
     </activity>

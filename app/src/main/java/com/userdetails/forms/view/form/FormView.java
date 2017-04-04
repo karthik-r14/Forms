@@ -1,4 +1,4 @@
-package com.userdetails.forms;
+package com.userdetails.forms.view.form;
 
 public interface FormView {
     void nameErrorVisibility(int visibility);

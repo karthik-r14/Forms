@@ -1,6 +1,6 @@
 package com.userdetails.forms.presenter;
 
-import com.userdetails.forms.FormView;
+import com.userdetails.forms.view.form.FormView;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -3,8 +3,8 @@ package com.userdetails.forms.presenter;
 import android.graphics.Bitmap;
 
 import com.userdetails.forms.R;
-import com.userdetails.forms.UserDetailShowActivity;
-import com.userdetails.forms.UserDetailView;
+import com.userdetails.forms.view.show_user_details.UserDetailShowActivity;
+import com.userdetails.forms.view.show_user_details.UserDetailView;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.userdetails.forms;
+package com.userdetails.forms.view.show_user_details;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.userdetails.forms.R;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.about_us.AboutUsActivity;

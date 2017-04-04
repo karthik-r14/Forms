@@ -1,6 +1,6 @@
 package com.userdetails.forms.presenter;
 
-import com.userdetails.forms.FormView;
+import com.userdetails.forms.view.form.FormView;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;

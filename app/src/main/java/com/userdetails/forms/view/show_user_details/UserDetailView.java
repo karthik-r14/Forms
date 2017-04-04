@@ -1,4 +1,4 @@
-package com.userdetails.forms;
+package com.userdetails.forms.view.show_user_details;
 
 import android.graphics.Bitmap;
 

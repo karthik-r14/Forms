@@ -40,8 +40,8 @@ public class UserDetailPresenter {
                 view.showRateUsDialog();
                 break;
 
-            case UserDetailShowActivity.SETTINGS:
-                view.startSettingsActivity();
+            case UserDetailShowActivity.FEEDBACK:
+                view.startFeedbackActivity();
                 break;
         }
     }

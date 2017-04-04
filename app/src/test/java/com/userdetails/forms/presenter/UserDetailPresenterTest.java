@@ -14,7 +14,6 @@ import static android.view.View.GONE;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class UserDetailPresenterTest {
@@ -74,9 +73,9 @@ public class UserDetailPresenterTest {
     }
 
     @Test
-    public void shouldShowSettingsActivityWhenSettingMenuItemIsClicked() throws Exception {
-        presenter.onMenuItemClick(UserDetailShowActivity.SETTINGS);
+    public void shouldShowFeedbackActivityWhenSettingMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.FEEDBACK);
 
-        verify(view).startSettingsActivity();
+        verify(view).startFeedbackActivity();
     }
 }

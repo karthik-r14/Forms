@@ -22,7 +22,7 @@ import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
 import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
-import com.userdetails.forms.view.settings.SettingsActivity;
+import com.userdetails.forms.view.feedback.FeedbackActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +35,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final int CAMERA_REQUEST_CODE = 100;
     public static final String ABOUT_US = "AboutUs";
     public static final String RATE_US = "RateUs";
-    public static final String SETTINGS = "Settings";
+    public static final String FEEDBACK = "Feedback";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -106,8 +106,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
-    public void startSettingsActivity() {
-        Intent intent = new Intent(UserDetailShowActivity.this, SettingsActivity.class);
+    public void startFeedbackActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, FeedbackActivity.class);
         startActivity(intent);
     }
 
@@ -164,7 +164,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 presenter.onMenuItemClick(RATE_US);
                 return true;
             case R.id.settings:
-                presenter.onMenuItemClick(SETTINGS);
+                presenter.onMenuItemClick(FEEDBACK);
             default:
                 return super.onOptionsItemSelected(item);
         }

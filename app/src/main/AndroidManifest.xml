@@ -29,8 +29,8 @@
       android:label="@string/about_us"
       android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".view.settings.SettingsActivity"
-      android:label="@string/settings"
+    <activity android:name=".view.feedback.FeedbackActivity"
+      android:label="@string/feedback"
       android:screenOrientation="portrait">
     </activity>
   </application>

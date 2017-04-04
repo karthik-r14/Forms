@@ -15,5 +15,5 @@ public interface UserDetailView {
 
     void showRateUsDialog();
 
-    void startSettingsActivity();
+    void startFeedbackActivity();
 }

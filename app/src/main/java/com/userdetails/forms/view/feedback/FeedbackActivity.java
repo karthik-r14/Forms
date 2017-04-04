@@ -28,5 +28,6 @@ public class FeedbackActivity extends AppCompatActivity {
     public void onSubmitButtonClick() {
         Toast.makeText(getApplicationContext(), R.string.feedback_submit_text, LENGTH_SHORT).show();
         feedbackText.setText("");
+        finish();
     }
 }

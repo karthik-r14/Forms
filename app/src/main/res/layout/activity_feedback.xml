@@ -14,9 +14,11 @@
     android:orientation="vertical">
 
     <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="303dp"
-      android:src="@drawable/feedback"/>
+      android:layout_width="250dp"
+      android:layout_height="250dp"
+      android:src="@drawable/feedback"
+      android:layout_gravity="center"
+      android:contentDescription="@string/feedback"/>
 
     <EditText
       android:id="@+id/feedback_text"
@@ -31,7 +33,7 @@
       android:id="@+id/submit_button"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="@color/colorPrimary"
+      android:background="@color/red"
       android:text="@string/submit"/>
   </LinearLayout>
 </ScrollView>

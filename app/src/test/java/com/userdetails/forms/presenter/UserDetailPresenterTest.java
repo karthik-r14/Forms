@@ -78,4 +78,11 @@ public class UserDetailPresenterTest {
 
         verify(view).startFeedbackActivity();
     }
+
+    @Test
+    public void shouldShowFAQsActivityWhenFAQsMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.FAQS);
+
+        verify(view).startFAQSActivity();
+    }
 }

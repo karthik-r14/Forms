@@ -11,4 +11,9 @@
   <item
     android:id="@+id/settings"
     android:title="@string/feedback"/>
+
+  <item
+    android:id="@+id/faqs"
+    android:title="@string/faqs"/>
+
 </menu>

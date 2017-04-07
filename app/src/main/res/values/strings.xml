@@ -41,4 +41,5 @@
   <string name="feedback_text">Please write your feedback here...</string>
   <string name="feedback_submit_text">Thank you for submitting your feedback.</string>
   <string name="empty_feedback">Feedback should not be empty.</string>
+  <string name="faqs">FAQs</string>
 </resources>

@@ -43,6 +43,10 @@ public class UserDetailPresenter {
             case UserDetailShowActivity.FEEDBACK:
                 view.startFeedbackActivity();
                 break;
+
+            case UserDetailShowActivity.FAQS:
+                view.startFAQSActivity();
+                break;
         }
     }
 }

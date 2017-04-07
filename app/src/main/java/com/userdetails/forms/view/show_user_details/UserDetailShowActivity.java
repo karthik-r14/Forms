@@ -21,9 +21,10 @@ import android.widget.Toast;
 import com.userdetails.forms.R;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
+import com.userdetails.forms.view.FAQs.FAQsActivity;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
-import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
 import com.userdetails.forms.view.feedback.FeedbackActivity;
+import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String ABOUT_US = "AboutUs";
     public static final String RATE_US = "RateUs";
     public static final String FEEDBACK = "Feedback";
+    public static final String FAQS = "FAQs";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -113,6 +115,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startFAQSActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, FAQsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -166,6 +174,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 return true;
             case R.id.settings:
                 presenter.onMenuItemClick(FEEDBACK);
+            case R.id.faqs:
+                presenter.onMenuItemClick(FAQS);
             default:
                 return super.onOptionsItemSelected(item);
         }

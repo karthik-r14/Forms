@@ -10,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.userdetails.forms.R;
-import com.userdetails.forms.view.show_user_details.UserDetailShowActivity;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.FormPresenter;
+import com.userdetails.forms.view.show_user_details.UserDetailShowActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,10 +48,10 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
     @OnClick(R.id.submit_button)
     public void submitButtonClick() {
-         String name = this.name.getText().toString();
-         String age = this.age.getText().toString();
-         String phoneNumber = this.phoneNumber.getText().toString();
-         String email = this.email.getText().toString();
+        String name = this.name.getText().toString();
+        String age = this.age.getText().toString();
+        String phoneNumber = this.phoneNumber.getText().toString();
+        String email = this.email.getText().toString();
 
         presenter.validate(name, age, phoneNumber, email);
 
@@ -60,7 +60,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
         }
     }
 
-    private void showAlertDialog(final String name,final String age,final String phoneNumber,final String address) {
+    private void showAlertDialog(final String name, final String age, final String phoneNumber, final String address) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(R.drawable.form_icon);
         builder.setTitle(R.string.form_submission)

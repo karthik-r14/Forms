@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.userdetails.forms">
+
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -29,8 +30,13 @@
       android:label="@string/about_us"
       android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".view.feedback.FeedbackActivity"
+    <activity
+      android:name=".view.feedback.FeedbackActivity"
       android:label="@string/feedback"
+      android:screenOrientation="portrait">
+    </activity>
+    <activity android:name=".view.FAQs.FAQsActivity"
+      android:label="@string/faqs"
       android:screenOrientation="portrait">
     </activity>
   </application>

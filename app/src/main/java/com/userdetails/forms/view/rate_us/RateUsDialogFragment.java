@@ -42,7 +42,7 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
-
+        
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_rate_us_dialog, (ViewGroup) getActivity().findViewById(R.id.rate_us_dialog));
         ButterKnife.bind(this, view);
         dialog.setTitle(R.string.rate_us);

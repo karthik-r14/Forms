@@ -42,4 +42,6 @@
   <string name="feedback_submit_text">Thank you for submitting your feedback.</string>
   <string name="empty_feedback">Feedback should not be empty.</string>
   <string name="faqs">FAQs</string>
+  <string name="max_length">/100</string>
+  <string name="min_length">0</string>
 </resources>

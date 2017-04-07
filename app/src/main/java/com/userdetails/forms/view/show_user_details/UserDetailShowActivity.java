@@ -104,8 +104,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public void showRateUsDialog() {
-        RateUsDialogFragment.newInstance()
-                .show(getFragmentManager(), RateUsDialogFragment.TAG);
+        RateUsDialogFragment rateUsDialogFragment = RateUsDialogFragment.newInstance();
+        rateUsDialogFragment.show(getFragmentManager(), RateUsDialogFragment.TAG);
     }
 
     @Override
@@ -174,8 +174,10 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 return true;
             case R.id.settings:
                 presenter.onMenuItemClick(FEEDBACK);
+                return true;
             case R.id.faqs:
                 presenter.onMenuItemClick(FAQS);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

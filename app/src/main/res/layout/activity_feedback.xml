@@ -23,13 +23,33 @@
     <EditText
       android:id="@+id/feedback_text"
       android:layout_width="match_parent"
+      android:layout_marginLeft="40dp"
+      android:layout_marginRight="40dp"
+      android:layout_marginBottom="0dp"
       android:layout_height="120dp"
       android:background="@color/grey"
       android:gravity="top"
       android:hint="@string/feedback_text"
       android:inputType="textMultiLine"
-      android:maxLines="5"/>
+      android:maxLines="5"
+      android:maxLength="100"/>
 
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      android:layout_gravity="right">
+      <TextView
+        android:id="@+id/feedback_text_length"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:text="@string/min_length"/>
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/max_length"/>
+    </LinearLayout>
     <Button
       android:id="@+id/submit_button"
       android:layout_width="match_parent"

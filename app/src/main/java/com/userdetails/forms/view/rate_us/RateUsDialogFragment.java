@@ -18,7 +18,6 @@ import com.userdetails.forms.presenter.RateUsDialogPresenter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -42,7 +41,7 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
-        
+
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_rate_us_dialog, (ViewGroup) getActivity().findViewById(R.id.rate_us_dialog));
         ButterKnife.bind(this, view);
         dialog.setTitle(R.string.rate_us);
@@ -53,7 +52,7 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                presenter.onRatingBarTouch(ratingBar.getRating());
+                presenter.onRatingBarTouch(rating);
             }
         });
 

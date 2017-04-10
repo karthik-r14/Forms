@@ -33,7 +33,7 @@ public class FAQsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faqs);
         ButterKnife.bind(this);
-        MyAdapter adapter  = new MyAdapter(this, questionNo, questions, answers);
+        CustomAdapter adapter = new CustomAdapter(this, questionNo, questions, answers);
         faqs.setAdapter(adapter);
         faqs.setBackgroundColor(Color.YELLOW);
     }

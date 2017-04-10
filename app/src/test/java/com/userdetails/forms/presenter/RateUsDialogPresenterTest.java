@@ -3,6 +3,7 @@ package com.userdetails.forms.presenter;
 
 import android.view.View;
 
+import com.userdetails.forms.R;
 import com.userdetails.forms.view.rate_us.RateUsView;
 
 import org.junit.Before;
@@ -11,6 +12,7 @@ import org.mockito.Mock;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static org.mockito.Matchers.floatThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -42,5 +44,23 @@ public class RateUsDialogPresenterTest {
         presenter.onRatingBarTouch(rating);
 
         verify(view).setButtonLayoutVisibility(GONE);
+    }
+
+    @Test
+    public void shouldSetColorOfRatingBarAsRedIfRatingIsLessThanOrEqualToThreshold() throws Exception {
+        float rating = 3.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setColorOfRatingBar(R.color.red);
+    }
+
+    @Test
+    public void shouldSetColorOfRatingBarAsTurquioseIfRatingIsGreaterThanThreshold() throws Exception {
+        float rating = 4.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setColorOfRatingBar(R.color.turquoise);
     }
 }

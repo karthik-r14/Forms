@@ -44,4 +44,5 @@
   <string name="faqs">FAQs</string>
   <string name="max_length">/150</string>
   <string name="min_length">0</string>
+  <string name="tap_stars">Tap stars to rate us</string>
 </resources>

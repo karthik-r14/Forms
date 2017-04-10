@@ -7,7 +7,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class RateUsDialogPresenter {
-    private static final int THRESHOLD = 3;
+    private static final float THRESHOLD = 3.0f;
     private RateUsView view;
 
     public RateUsDialogPresenter(RateUsView view) {
@@ -18,13 +18,16 @@ public class RateUsDialogPresenter {
         if (rating <= THRESHOLD) {
             if (rating == 0.0f) {
                 view.setButtonLayoutVisibility(GONE);
+                view.setTapStarsVisibility(VISIBLE);
             } else {
                 view.setButtonLayoutVisibility(VISIBLE);
                 view.setColorOfRatingBar(R.color.red);
+                view.setTapStarsVisibility(GONE);
             }
         } else {
             view.setButtonLayoutVisibility(VISIBLE);
             view.setColorOfRatingBar(R.color.turquoise);
+            view.setTapStarsVisibility(GONE);
         }
     }
 }

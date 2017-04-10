@@ -67,4 +67,22 @@ public class RateUsDialogPresenterTest {
         verify(view).setColorOfRatingBar(R.color.turquoise);
         verify(view).setButtonLayoutVisibility(VISIBLE);
     }
+
+    @Test
+    public void shouldShowTapStarsTextIfRatingIsZero() throws Exception {
+        float rating = 0.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setTapStarsVisibility(VISIBLE);
+    }
+
+    @Test
+    public void shouldHideTapStarsTextIfRatingIsGreaterThanZero() throws Exception {
+        float rating = 1.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setTapStarsVisibility(GONE);
+    }
 }

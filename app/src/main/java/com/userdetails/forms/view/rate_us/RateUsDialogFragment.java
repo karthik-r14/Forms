@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.userdetails.forms.R;
@@ -32,12 +33,14 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     Button submitButton;
     @BindView(R.id.not_now)
     Button notNowButton;
+    @BindView(R.id.tap_stars_text)
+    TextView starsText;
 
     private RateUsDialogPresenter presenter;
     public static final String TAG = RateUsDialogFragment.class.getSimpleName();
 
     public static RateUsDialogFragment newInstance() {
-        return  new RateUsDialogFragment();
+        return new RateUsDialogFragment();
     }
 
     @Override
@@ -73,6 +76,11 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     public void setColorOfRatingBar(int color) {
         LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);//color of filled stars
+    }
+
+    @Override
+    public void setTapStarsVisibility(int visibility) {
+        starsText.setVisibility(visibility);
     }
 
     @OnClick(R.id.submit_button)

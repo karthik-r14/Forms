@@ -58,6 +58,9 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
             }
         });
 
+        LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+        stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.grey), PorterDuff.Mode.SRC_ATOP);//color of empty stars
+
         return dialog;
     }
 
@@ -69,10 +72,7 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     @Override
     public void setColorOfRatingBar(int color) {
         LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
-        stars.getDrawable(2).setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);
-        stars.getDrawable(1).setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);
-        stars.getDrawable(0).setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);
-
+        stars.getDrawable(2).setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);//color of filled stars
     }
 
     @OnClick(R.id.submit_button)

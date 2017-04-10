@@ -18,8 +18,10 @@ public class RateUsDialogPresenter {
         if (rating <= THRESHOLD) {
             if (rating == 0.0f) {
                 view.setButtonLayoutVisibility(GONE);
+            } else {
+                view.setButtonLayoutVisibility(VISIBLE);
+                view.setColorOfRatingBar(R.color.red);
             }
-            view.setColorOfRatingBar(R.color.red);
         } else {
             view.setButtonLayoutVisibility(VISIBLE);
             view.setColorOfRatingBar(R.color.turquoise);

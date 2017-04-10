@@ -3,9 +3,11 @@ package com.userdetails.forms.view.rate_us;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.userdetails.forms.R;
 import com.userdetails.forms.presenter.RateUsDialogPresenter;
+import com.userdetails.forms.view.feedback.FeedbackActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,8 +32,8 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     RatingBar ratingBar;
     @BindView(R.id.button_layout)
     LinearLayout buttonLayout;
-    @BindView(R.id.submit_button)
-    Button submitButton;
+    @BindView(R.id.submit_and_feedback_button)
+    Button submitAndFeedbackButton;
     @BindView(R.id.not_now)
     Button notNowButton;
     @BindView(R.id.tap_stars_text)
@@ -83,8 +86,18 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
         starsText.setVisibility(visibility);
     }
 
-    @OnClick(R.id.submit_button)
+    @Override
+    public void setButtonText(@StringRes int buttonText) {
+        submitAndFeedbackButton.setText(buttonText);
+    }
+
+    @OnClick(R.id.submit_and_feedback_button)
     public void onSubmitButtonClick() {
+        if(submitAndFeedbackButton.getText().equals(getString(R.string.feedback))) {
+            Intent intent = new Intent(getActivity(), FeedbackActivity.class);
+            startActivity(intent);
+        }
+
         Toast.makeText(getActivity(), R.string.thank_you_submit, LENGTH_SHORT).show();
         getDialog().dismiss();
     }

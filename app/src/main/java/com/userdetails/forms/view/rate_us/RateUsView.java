@@ -6,4 +6,6 @@ public interface RateUsView {
     void setColorOfRatingBar(int color);
 
     void setTapStarsVisibility(int visibility);
+
+    void setButtonText(int buttonText);
 }

@@ -85,4 +85,22 @@ public class RateUsDialogPresenterTest {
 
         verify(view).setTapStarsVisibility(GONE);
     }
+
+    @Test
+    public void shouldSetButtonTextAsFeedbackIfRatingIsLessThanOrEqualToThreshold() throws Exception {
+        float rating = 2.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setButtonText(R.string.feedback);
+    }
+
+    @Test
+    public void shouldSetButtonTextAsSubmitIfRatingIsGreaterThanThreshold() throws Exception {
+        float rating = 4.0f;
+
+        presenter.onRatingBarTouch(rating);
+
+        verify(view).setButtonText(R.string.submit);
+    }
 }

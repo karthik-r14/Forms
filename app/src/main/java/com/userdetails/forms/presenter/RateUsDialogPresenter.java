@@ -20,14 +20,17 @@ public class RateUsDialogPresenter {
                 view.setButtonLayoutVisibility(GONE);
                 view.setTapStarsVisibility(VISIBLE);
             } else {
-                view.setButtonLayoutVisibility(VISIBLE);
-                view.setColorOfRatingBar(R.color.red);
-                view.setTapStarsVisibility(GONE);
+                setAllViews(R.color.red, R.string.feedback);
             }
         } else {
-            view.setButtonLayoutVisibility(VISIBLE);
-            view.setColorOfRatingBar(R.color.turquoise);
-            view.setTapStarsVisibility(GONE);
+            setAllViews(R.color.turquoise, R.string.submit);
         }
+    }
+
+    private void setAllViews(int ratingBarColor, int buttonText) {
+        view.setButtonLayoutVisibility(VISIBLE);
+        view.setColorOfRatingBar(ratingBarColor);
+        view.setTapStarsVisibility(GONE);
+        view.setButtonText(buttonText);
     }
 }

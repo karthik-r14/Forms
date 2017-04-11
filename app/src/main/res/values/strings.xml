@@ -45,6 +45,9 @@
   <string name="max_length">/150</string>
   <string name="min_length">0</string>
   <string name="tap_stars">Tap stars to rate us</string>
+  <string name="sample_faq_1">What is the use of this app?</string>
+  <string name="sample_answer_1">Its for filling up user details</string>
+  <string name="one">1.</string>
 
   <string-array name="questions">
     <item>What is the use of this app?</item>

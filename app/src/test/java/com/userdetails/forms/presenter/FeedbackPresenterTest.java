@@ -39,6 +39,7 @@ public class FeedbackPresenterTest {
 
         verify(view).clearFeedbackText();
         verify(view).showToastMessage(R.string.feedback_submit_text);
+        verify(view).storeFeedback(feedbackText);
         verify(view).finishActivity();
     }
 }

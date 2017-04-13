@@ -6,4 +6,6 @@ public interface FeedbackView {
     void clearFeedbackText();
 
     void finishActivity();
+
+    void storeFeedback(String feedbackText);
 }

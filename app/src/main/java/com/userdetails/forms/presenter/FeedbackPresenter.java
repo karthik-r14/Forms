@@ -17,6 +17,7 @@ public class FeedbackPresenter {
         else {
             view.clearFeedbackText();
             view.showToastMessage(R.string.feedback_submit_text);
+            view.storeFeedback(feedbackText);
             view.finishActivity();
         }
     }

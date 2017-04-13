@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +19,9 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class FAQsActivity extends AppCompatActivity {
     public static final String QUESTIONS = "questions";
     public static final String ANSWERS = "answers";
@@ -25,6 +29,9 @@ public class FAQsActivity extends AppCompatActivity {
     private static final String TAG = FAQsActivity.class.getSimpleName();
     @BindView(R.id.faqs)
     ListView faqs;
+    @BindView(R.id.no_internet)
+    TextView noInternet;
+
     private DatabaseReference mDatabase;
     private CustomAdapter adapter;
 
@@ -33,6 +40,8 @@ public class FAQsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faqs);
         ButterKnife.bind(this);
+
+        noInternet.setVisibility(VISIBLE);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -48,6 +57,8 @@ public class FAQsActivity extends AppCompatActivity {
 
                 faqs.setAdapter(adapter);
                 faqs.setBackgroundColor(Color.YELLOW);
+                faqs.setVisibility(VISIBLE);
+                noInternet.setVisibility(GONE);
             }
 
             @Override

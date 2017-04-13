@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.userdetails.forms.R;
 
-class CustomAdapter extends ArrayAdapter{
-    private String []questionNo;
-    private String []questions;
-    private String []answers;
+class CustomAdapter extends ArrayAdapter {
+    private String[] questionNo;
+    private String[] questions;
+    private String[] answers;
 
-    public CustomAdapter(Context context, String [] questionNo, String[] questions, String[] answers) {
+    public CustomAdapter(Context context, String[] questionNo, String[] questions, String[] answers) {
         super(context, R.layout.custom_listview_layout, R.id.question_no, questionNo);
         this.questionNo = questionNo;
         this.questions = questions;
@@ -36,6 +36,7 @@ class CustomAdapter extends ArrayAdapter{
         myQuestionNo.setText(questionNo[position]);
         myQuestion.setText(questions[position]);
         myAnswer.setText(answers[position]);
+
         return row;
     }
 }

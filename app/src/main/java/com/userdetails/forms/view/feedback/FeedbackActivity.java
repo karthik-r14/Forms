@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class FeedbackActivity extends AppCompatActivity implements FeedbackView {
@@ -33,6 +38,10 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
     EditText feedbackText;
     @BindView(R.id.feedback_text_length)
     TextView feedbackTextLength;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+    @BindView(R.id.feedback_layout)
+    LinearLayout feedbackLayout;
 
     private FeedbackPresenter presenter;
     private DatabaseReference mDatabase;
@@ -46,6 +55,7 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
         ButterKnife.bind(this);
         presenter = new FeedbackPresenter(this);
 
+        progressBar.setVisibility(VISIBLE);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ValueEventListener feedbackListener = new ValueEventListener() {
@@ -53,6 +63,9 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<String> feedback = (ArrayList<String>) dataSnapshot.child(FEEDBACK).getValue();
                 feedbackId = Integer.toString(feedback.size());
+                progressBar.setVisibility(GONE);
+                feedbackLayout.setVisibility(VISIBLE);
+
             }
 
             @Override

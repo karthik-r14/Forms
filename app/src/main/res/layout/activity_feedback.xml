@@ -8,56 +8,77 @@
   android:orientation="vertical"
   tools:context="com.userdetails.forms.view.feedback.FeedbackActivity">
 
-  <LinearLayout
+  <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <ImageView
-      android:id="@+id/imageView"
-      android:layout_width="250dp"
-      android:layout_height="250dp"
-      android:layout_gravity="center"
-      android:contentDescription="@string/feedback"
-      android:src="@drawable/feedback"/>
-
-    <EditText
-      android:id="@+id/feedback_text"
+    <ProgressBar
+      android:id="@+id/progressBar"
+      style="?android:attr/progressBarStyleLarge"
       android:layout_width="match_parent"
-      android:layout_height="120dp"
-      android:layout_marginBottom="0dp"
-      android:layout_marginLeft="40dp"
-      android:layout_marginRight="40dp"
-      android:background="@color/grey"
-      android:gravity="top"
-      android:hint="@string/feedback_text"
-      android:inputType="textMultiLine"
-      android:maxLength="150"
-      android:maxLines="5"/>
+      android:layout_height="match_parent"
+      android:layout_marginTop="150dp"
+      android:visibility="gone"/>
 
     <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:orientation="horizontal"
-      android:layout_gravity="right">
-      <TextView
-        android:id="@+id/feedback_text_length"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:text="@string/min_length"/>
-      <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/max_length"/>
-    </LinearLayout>
-
-    <Button
-      android:id="@+id/submit_button"
+      android:id="@+id/feedback_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="@color/red"
-      android:text="@string/submit"/>
+      android:orientation="vertical"
+      android:visibility="gone">
 
-  </LinearLayout>
+      <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/feedback"
+        android:src="@drawable/feedback"/>
+
+      <EditText
+        android:id="@+id/feedback_text"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/grey"
+        android:gravity="top"
+        android:hint="@string/feedback_text"
+        android:inputType="textMultiLine"
+        android:maxLength="150"
+        android:maxLines="5"/>
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="end">
+        <TextView
+          android:id="@+id/feedback_text_length"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_gravity="end"
+          android:text="@string/min_length"/>
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="@string/max_length"/>
+      </LinearLayout>
+
+      <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:text="@string/submit"/>
+
+    </LinearLayout>
+
+
+
+
+  </RelativeLayout>
+
+
 </ScrollView>

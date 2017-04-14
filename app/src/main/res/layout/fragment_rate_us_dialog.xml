@@ -1,50 +1,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.userdetails.forms.view.rate_us.RateUsDialogFragment"
-  android:id="@+id/rate_us_dialog">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rate_us_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.userdetails.forms.view.rate_us.RateUsDialogFragment">
 
-  <RatingBar
-    android:id="@+id/ratingBar"
+  <ProgressBar
+    android:id="@+id/progressBar"
+    style="?android:attr/progressBarStyleLarge"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:numStars="5"
-    android:stepSize="1"
-    android:layout_centerHorizontal="true"/>
-
-  <TextView
-    android:id="@+id/tap_stars_text"
-    android:layout_below="@+id/ratingBar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/tap_stars"
-    android:textSize="18sp"
-    android:layout_centerHorizontal="true"/>
+    android:layout_centerHorizontal="true"
+    android:visibility="gone"/>
 
   <LinearLayout
-    android:id="@+id/button_layout"
-    android:layout_width="wrap_content"
+    android:id="@+id/rating_layout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@+id/ratingBar"
-    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:gravity="center"
     android:visibility="gone">
 
-    <Button
-      android:id="@+id/submit_and_feedback_button"
-      android:layout_width="150dp"
+    <RatingBar
+      android:id="@+id/ratingBar"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/submit"
-      android:textAllCaps="true"
-      />
+      android:numStars="5"
+      android:stepSize="1"/>
 
-    <Button
-      android:id="@+id/not_now"
-      android:layout_width="150dp"
+    <TextView
+      android:id="@+id/tap_stars_text"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/not_now"
-      android:textAllCaps="true"/>
+      android:text="@string/tap_stars"
+      android:textSize="18sp"/>
+
+    <LinearLayout
+      android:id="@+id/button_layout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:visibility="gone">
+
+      <Button
+        android:id="@+id/submit_and_feedback_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textAllCaps="true"
+        />
+
+      <Button
+        android:id="@+id/not_now"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/not_now"
+        android:textAllCaps="true"/>
+
+    </LinearLayout>
 
   </LinearLayout>
+
 </RelativeLayout>

@@ -39,6 +39,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String RATE_US = "RateUs";
     public static final String FEEDBACK = "Feedback";
     public static final String FAQS = "FAQs";
+    public static final String PERSON = "Person";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -63,7 +64,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
         presenter = new UserDetailPresenter(this);
 
         Intent intent = getIntent();
-        Person person = intent.getParcelableExtra("Person");
+        Person person = intent.getParcelableExtra(PERSON);
 
         String name = person.getName();
         String age = person.getAge();

@@ -72,7 +72,7 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
                         Intent intent = new Intent(getApplicationContext(), UserDetailShowActivity.class);
                         Person person = new Person(name, age, phoneNumber, address);
-                        intent.putExtra("Person", person);
+                        intent.putExtra(UserDetailShowActivity.PERSON, person);
                         startActivity(intent);
                     }
                 })

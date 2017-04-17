@@ -10,7 +10,7 @@
   <string name="email">Email : </string>
   <string name="enter_email">Enter your email</string>
   <string name="email_error">Email should not be empty.</string>
-  <string name="phone_number">Phone number : </string>
+  <string name="phone_number">Phone no : </string>
   <string name="enter_phone_number">Enter your phone number</string>
   <string name="phone_error">Phone number should not be empty.</string>
   <string name="submit">Submit</string>

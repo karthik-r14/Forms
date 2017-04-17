@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/activity_form"
   android:layout_width="match_parent"
@@ -22,167 +23,238 @@
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
       android:text="@string/form"
+      android:textAllCaps="true"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="20sp"
-      android:textAllCaps="true"
       android:textStyle="bold"/>
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
       android:id="@+id/name_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
       android:layout_below="@+id/Heading"
-      android:orientation="vertical">
+      android:layout_marginTop="20dp"
+      app:cardCornerRadius="5dp"
+      app:cardElevation="10dp">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/name"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        />
 
-      <EditText
-        android:id="@+id/name"
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_name"
-        android:inputType="text"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-      <TextView
-        android:id="@+id/name_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:visibility="gone"
-        android:textColor="@color/red"
-        android:text="@string/name_error"
-        />
-    </LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+          <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_name"
+            android:inputType="text"/>
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/name_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:gravity="center"
+          android:text="@string/name_error"
+          android:textColor="@color/red"
+          android:visibility="gone"
+          />
+      </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
       android:id="@+id/age_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/name_layout"
-      android:orientation="vertical">
+      android:layout_marginTop="20dp"
+      app:cardElevation="10dp">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/age"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        />
 
-      <EditText
-        android:id="@+id/age"
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLength="3"
-        android:hint="@string/enter_age"
-        android:inputType="number"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-      <TextView
-        android:id="@+id/age_error"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textColor="@color/red"
-        android:text="@string/age_error"
-        />
-    </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/age"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+          <EditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_age"
+            android:inputType="number"
+            android:maxLength="3"
+            />
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/age_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:gravity="center"
+          android:text="@string/age_error"
+          android:textColor="@color/red"
+          android:visibility="gone"
+          />
+
+      </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
       android:id="@+id/phone_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
       android:layout_below="@+id/age_layout"
-      android:orientation="vertical">
+      android:layout_marginTop="20dp"
+      app:cardElevation="10dp">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/phone_number"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        />
 
-      <EditText
-        android:id="@+id/phone_number"
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_phone_number"
-        android:inputType="phone"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-      <TextView
-        android:id="@+id/phone_error"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textColor="@color/red"
-        android:text="@string/phone_error"
-        />
-    </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/phone_number"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+          <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_phone_number"
+            android:inputType="phone"/>
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/phone_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:gravity="center"
+          android:text="@string/phone_error"
+          android:textColor="@color/red"
+          android:visibility="gone"
+          />
+      </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
       android:id="@+id/email_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/phone_layout"
-      android:orientation="vertical">
+      android:layout_marginTop="20dp"
+      app:cardElevation="10dp">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/email"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        />
-
-      <EditText
-        android:id="@+id/email"
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_email"
-        android:maxLines="1"
-        android:inputType="textEmailAddress"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-      <TextView
-        android:id="@+id/email_error"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textColor="@color/red"
-        android:text="@string/email_error"
-        />
-    </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/email"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+          <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"/>
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/email_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:text="@string/email_error"
+          android:textColor="@color/red"
+          android:visibility="gone"
+          />
+      </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     <Button
       android:id="@+id/submit_button"
@@ -191,9 +263,9 @@
       android:layout_below="@+id/email_layout"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="10dp"
+      android:background="@color/colorPrimaryDark"
       android:text="@string/submit"
       android:textColor="@color/yellow"
-      android:textStyle="bold"
-      android:background="@color/colorPrimaryDark"/>
+      android:textStyle="bold"/>
   </RelativeLayout>
 </ScrollView>

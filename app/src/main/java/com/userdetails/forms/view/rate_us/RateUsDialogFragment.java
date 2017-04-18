@@ -3,6 +3,7 @@ package com.userdetails.forms.view.rate_us;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -11,6 +12,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,8 +97,9 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
         ValueEventListener ratingListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<String> ratings = (ArrayList<String>) dataSnapshot.child(RATING).getValue();
+                ArrayList<Long> ratings = (ArrayList<Long>) dataSnapshot.child(RATING).getValue();
                 ratingId = Integer.toString(ratings.size());
+                presenter.notifyAverageRating(ratings);
                 progressBar.setVisibility(GONE);
                 ratingLayout.setVisibility(VISIBLE);
             }
@@ -130,6 +133,18 @@ public class RateUsDialogFragment extends DialogFragment implements RateUsView {
     @Override
     public void setButtonText(@StringRes int buttonText) {
         submitAndFeedbackButton.setText(buttonText);
+    }
+
+    @Override
+    public void notifyAverageRatingToUser(double averageRating) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
+
+        builder.setSmallIcon(R.drawable.rating);
+        builder.setContentTitle(getString(R.string.average_rating));
+        builder.setContentText(String.format(getString(R.string.average_rating_text),averageRating));
+
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, builder.build());
     }
 
     @OnClick(R.id.submit_and_feedback_button)

@@ -48,4 +48,6 @@
   <string name="sample_faq_1">What is the use of this app?</string>
   <string name="sample_answer_1">Its for filling up user details</string>
   <string name="one">1.</string>
+  <string name="average_rating">Average Rating</string>
+  <string name="average_rating_text">The average rating for this app is %f</string>
 </resources>

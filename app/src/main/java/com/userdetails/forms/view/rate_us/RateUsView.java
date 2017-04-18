@@ -8,4 +8,6 @@ public interface RateUsView {
     void setTapStarsVisibility(int visibility);
 
     void setButtonText(int buttonText);
+
+    void notifyAverageRatingToUser(double averageRating);
 }

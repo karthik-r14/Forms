@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.util.ArrayList;
+
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.mockito.Matchers.floatThat;
@@ -102,5 +104,16 @@ public class RateUsDialogPresenterTest {
         presenter.onRatingBarTouch(rating);
 
         verify(view).setButtonText(R.string.submit);
+    }
+
+    @Test
+    public void shouldNotifyAverageRatingToUser() throws Exception {
+        ArrayList<Long> ratings = new ArrayList<>();
+        ratings.add(5L);
+        ratings.add(4L);
+
+        presenter.notifyAverageRating(ratings);
+
+        verify(view).notifyAverageRatingToUser(4.5);
     }
 }

@@ -47,6 +47,9 @@ public class UserDetailPresenter {
             case UserDetailShowActivity.FAQS:
                 view.startFAQSActivity();
                 break;
+
+            case UserDetailShowActivity.SHARE:
+                view.shareByMessagingApps();
         }
     }
 }

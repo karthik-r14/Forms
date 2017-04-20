@@ -40,6 +40,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String FEEDBACK = "Feedback";
     public static final String FAQS = "FAQs";
     public static final String PERSON = "Person";
+    public static final String SHARE = "Share";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -122,6 +123,14 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void shareByMessagingApps() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_message));
+        intent.setType("text/plain");
+        startActivity(Intent.createChooser(intent, getResources().getText(R.string.share_the_app)));
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -178,6 +187,9 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 return true;
             case R.id.faqs:
                 presenter.onMenuItemClick(FAQS);
+                return true;
+            case R.id.share:
+                presenter.onMenuItemClick(SHARE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

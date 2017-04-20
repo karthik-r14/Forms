@@ -50,4 +50,6 @@
   <string name="one">1.</string>
   <string name="average_rating">Average Rating</string>
   <string name="average_rating_text">Average rating for this app is %f</string>
+  <string name="share_the_app">Share the App</string>
+  <string name="share_app_message">This app is amazing do try it out!</string>
 </resources>

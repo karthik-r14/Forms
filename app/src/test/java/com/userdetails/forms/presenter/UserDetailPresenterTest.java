@@ -85,4 +85,11 @@ public class UserDetailPresenterTest {
 
         verify(view).startFAQSActivity();
     }
+
+    @Test
+    public void shouldShareTheAppViaMessagingAppsWhenShareMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.SHARE);
+
+        verify(view).shareByMessagingApps();
+    }
 }

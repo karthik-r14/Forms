@@ -18,4 +18,6 @@ public interface UserDetailView {
     void startFeedbackActivity();
 
     void startFAQSActivity();
+
+    void shareByMessagingApps();
 }

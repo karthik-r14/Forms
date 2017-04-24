@@ -10,7 +10,7 @@
     android:title="@string/rate_us"/>
 
   <item
-    android:id="@+id/settings"
+    android:id="@+id/feedback"
     android:title="@string/feedback"/>
 
   <item

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -166,6 +168,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
         this.email.setText(email);
     }
 
+    private boolean isConnectivityAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -180,9 +188,17 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 presenter.onMenuItemClick(ABOUT_US);
                 return true;
             case R.id.rate_us:
+                if (!isConnectivityAvailable()) {
+                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
                 presenter.onMenuItemClick(RATE_US);
                 return true;
-            case R.id.settings:
+            case R.id.feedback:
+                if (!isConnectivityAvailable()) {
+                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
                 presenter.onMenuItemClick(FEEDBACK);
                 return true;
             case R.id.faqs:

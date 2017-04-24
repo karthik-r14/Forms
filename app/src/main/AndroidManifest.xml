@@ -35,7 +35,8 @@
       android:label="@string/feedback"
       android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".view.FAQs.FAQsActivity"
+    <activity
+      android:name=".view.FAQs.FAQsActivity"
       android:label="@string/faqs"
       android:screenOrientation="portrait">
     </activity>

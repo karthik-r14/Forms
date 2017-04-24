@@ -183,22 +183,19 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (!isConnectivityAvailable()) {
+            Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
         switch (item.getItemId()) {
             case R.id.about_us:
                 presenter.onMenuItemClick(ABOUT_US);
                 return true;
             case R.id.rate_us:
-                if (!isConnectivityAvailable()) {
-                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
-                    return true;
-                }
                 presenter.onMenuItemClick(RATE_US);
                 return true;
             case R.id.feedback:
-                if (!isConnectivityAvailable()) {
-                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
-                    return true;
-                }
                 presenter.onMenuItemClick(FEEDBACK);
                 return true;
             case R.id.faqs:

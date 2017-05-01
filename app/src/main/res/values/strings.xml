@@ -52,4 +52,5 @@
   <string name="average_rating_text">Average rating for this app is %f</string>
   <string name="share_the_app">Share the App</string>
   <string name="share_app_message">This app is amazing do try it out!</string>
+  <string name="airplane_mode_message">The form app will not work in airplane mode as there will not be any access to internet</string>
 </resources>

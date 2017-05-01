@@ -40,6 +40,14 @@
       android:label="@string/faqs"
       android:screenOrientation="portrait">
     </activity>
+
+    <receiver
+      android:name=".receiver.MyReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.AIRPLANE_MODE">
+        </action>
+      </intent-filter>
+    </receiver>
   </application>
 
 </manifest>

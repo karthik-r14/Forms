@@ -1,5 +1,6 @@
 # Forms
-An android app.
-Using this app users can :
-*share their details.
-*Rate and give feedback for this app.
+An android app for users using which they can :
+
+1.Share their details.
+
+2.Rate and give feedback for this app.

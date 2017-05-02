@@ -16,7 +16,6 @@ public class PersonTest {
 
     @Test
     public void shouldGetName() throws Exception {
-
         assertEquals("Karthik", person.getName());
     }
 
@@ -34,5 +33,4 @@ public class PersonTest {
     public void getEmail() throws Exception {
         assertEquals("karthikr1493@gmail.com", person.getEmail());
     }
-
 }

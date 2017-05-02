@@ -1,7 +1,9 @@
 package com.userdetails.forms.view.form;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class FormActivity extends AppCompatActivity implements FormView {
+    public static final String USER_DETAILS = "UserDetails";
+    public static final String NAME = "name";
+    public static final String AGE = "age";
+    public static final String PHONE = "phone";
+    public static final String EMAIL = "email";
     @BindView(R.id.name)
     EditText name;
     @BindView(R.id.age)
@@ -55,9 +62,20 @@ public class FormActivity extends AppCompatActivity implements FormView {
 
         presenter.validate(name, age, phoneNumber, email);
 
-        if (!presenter.hasErrors()) {
+       if (!presenter.hasErrors()) {
+            storeDetailsInSharedPreferences(name, age, phoneNumber, email);
             showAlertDialog(name, age, phoneNumber, email);
         }
+    }
+
+    private void storeDetailsInSharedPreferences(String name, String age, String phoneNumber, String email) {
+        SharedPreferences sharedPreferences = getSharedPreferences(USER_DETAILS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(NAME, name);
+        editor.putString(AGE, age);
+        editor.putString(PHONE, phoneNumber);
+        editor.putString(EMAIL, email);
+        editor.commit();
     }
 
     private void showAlertDialog(final String name, final String age, final String phoneNumber, final String address) {

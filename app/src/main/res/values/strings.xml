@@ -50,7 +50,7 @@
   <string name="one">1.</string>
   <string name="average_rating">Average Rating</string>
   <string name="average_rating_text">Average rating for this app is %f</string>
-  <string name="share_the_app">Share the App</string>
-  <string name="share_app_message">This app is amazing do try it out!</string>
+  <string name="share_the_details">Share the details</string>
+  <string name="share_details_message">Details are : \n Name : %1$s \n Age : %2$s \n Phone : %3$s \n Email : %4$s</string>
   <string name="airplane_mode_message">The form app will not work in airplane mode as there will not be any access to internet</string>
 </resources>

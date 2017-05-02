@@ -1,8 +1,10 @@
 package com.userdetails.forms.view.show_user_details;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -26,6 +28,7 @@ import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.FAQs.FAQsActivity;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
 import com.userdetails.forms.view.feedback.FeedbackActivity;
+import com.userdetails.forms.view.form.FormActivity;
 import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
 
 import butterknife.BindView;
@@ -126,10 +129,16 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
 
     @Override
     public void shareByMessagingApps() {
+        SharedPreferences preferences = getSharedPreferences(FormActivity.USER_DETAILS, Context.MODE_PRIVATE);
+        String name = preferences.getString(FormActivity.NAME, getString(R.string.sample_name));
+        String age = preferences.getString(FormActivity.AGE, getString(R.string.sample_age));
+        String email = preferences.getString(FormActivity.EMAIL, getString(R.string.sample_email));
+        String phone = preferences.getString(FormActivity.PHONE, getString(R.string.sample_phone_number));
+
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_message));
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_details_message, name, age, email, phone));
         intent.setType("text/plain");
-        startActivity(Intent.createChooser(intent, getResources().getText(R.string.share_the_app)));
+        startActivity(Intent.createChooser(intent, getResources().getText(R.string.share_the_details)));
     }
 
     @Override

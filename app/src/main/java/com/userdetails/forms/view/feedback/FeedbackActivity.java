@@ -7,7 +7,10 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,9 +29,11 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnFocusChange;
 import butterknife.OnTextChanged;
 
 import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -42,6 +47,8 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
     ProgressBar progressBar;
     @BindView(R.id.feedback_layout)
     LinearLayout feedbackLayout;
+    @BindView(R.id.imageView)
+    ImageView image;
 
     private FeedbackPresenter presenter;
     private DatabaseReference mDatabase;
@@ -65,6 +72,7 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
                 feedbackId = Integer.toString(feedback.size());
                 progressBar.setVisibility(GONE);
                 feedbackLayout.setVisibility(VISIBLE);
+                image.setVisibility(INVISIBLE);
 
             }
 
@@ -90,6 +98,13 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
     void onFeedbackTextChanged() {
         Integer textLength = feedbackText.getText().toString().length();
         feedbackTextLength.setText(Integer.toString(textLength));
+    }
+
+    @OnFocusChange(R.id.feedback_text)
+    void onFocusChange() {
+        image.setVisibility(VISIBLE);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
+        image.startAnimation(animation);
     }
 
     @Override

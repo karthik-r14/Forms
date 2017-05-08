@@ -92,4 +92,11 @@ public class UserDetailPresenterTest {
 
         verify(view).shareByMessagingApps();
     }
+
+    @Test
+    public void shouldShowMoreActivityWhenMoreMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.MORE);
+
+        verify(view).startMoreActivity();
+    }
 }

@@ -41,13 +41,15 @@
       android:screenOrientation="portrait">
     </activity>
 
-    <receiver
-      android:name=".receiver.MyReceiver">
+    <receiver android:name=".receiver.MyReceiver">
       <intent-filter>
         <action android:name="android.intent.action.AIRPLANE_MODE">
         </action>
       </intent-filter>
     </receiver>
+
+    <activity android:name=".view.more.MoreActivity">
+    </activity>
   </application>
 
 </manifest>

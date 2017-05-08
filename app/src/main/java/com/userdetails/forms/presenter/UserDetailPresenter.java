@@ -50,6 +50,10 @@ public class UserDetailPresenter {
 
             case UserDetailShowActivity.SHARE:
                 view.shareByMessagingApps();
+                break;
+            case UserDetailShowActivity.MORE:
+                view.startMoreActivity();
+                break;
         }
     }
 }

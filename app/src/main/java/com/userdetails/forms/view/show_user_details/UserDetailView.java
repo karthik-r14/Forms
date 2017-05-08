@@ -20,4 +20,6 @@ public interface UserDetailView {
     void startFAQSActivity();
 
     void shareByMessagingApps();
+
+    void startMoreActivity();
 }

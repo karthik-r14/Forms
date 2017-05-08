@@ -26,6 +26,7 @@ import com.userdetails.forms.R;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.FAQs.FAQsActivity;
+import com.userdetails.forms.view.more.MoreActivity;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
 import com.userdetails.forms.view.feedback.FeedbackActivity;
 import com.userdetails.forms.view.form.FormActivity;
@@ -46,6 +47,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String FAQS = "FAQs";
     public static final String PERSON = "Person";
     public static final String SHARE = "Share";
+    public static final String MORE = "More";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -142,6 +144,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startMoreActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, MoreActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -219,6 +227,9 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
             case R.id.share:
                 presenter.onMenuItemClick(SHARE);
                 return true;
+            case R.id.more:
+                if(internetAvailable)
+                    presenter.onMenuItemClick(MORE);
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -53,4 +53,5 @@
   <string name="share_the_details">Share the details</string>
   <string name="share_details_message">Details are : \n Name : %1$s \n Age : %2$s \n Email : %3$s \n Phone : %4$s</string>
   <string name="airplane_mode_message">The form app will not work in airplane mode as there will not be any access to internet</string>
+  <string name="more">More</string>
 </resources>

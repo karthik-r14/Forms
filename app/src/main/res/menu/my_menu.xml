@@ -24,4 +24,7 @@
     android:icon="@drawable/share_icon"
     android:title="@string/share_the_details"/>
 
+  <item
+    android:id="@+id/more"
+    android:title="@string/more"/>
 </menu>

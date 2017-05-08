@@ -48,7 +48,10 @@
       </intent-filter>
     </receiver>
 
-    <activity android:name=".view.more.MoreActivity">
+    <activity
+      android:name=".view.more.MoreActivity"
+      android:label="@string/more"
+      android:screenOrientation="portrait">
     </activity>
   </application>
 

@@ -1,5 +1,6 @@
 package com.userdetails.forms.view.more;
 
+import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,7 +16,14 @@ class CustomPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return MoreFragment.newInstance(item[position]);
+        Fragment fragment = new Fragment();
+        if(position == 0 || position == 1) {
+            fragment = MoreFragment.newInstance(item[position]);
+        } else {
+            fragment = MyFragment.newInstance();
+        }
+        return fragment;
+
     }
 
     @Override

@@ -87,7 +87,7 @@ public class UserDetailPresenterTest {
     }
 
     @Test
-    public void shouldShareTheAppViaMessagingAppsWhenShareMenuItemIsClicked() throws Exception {
+        public void shouldShareTheAppViaMessagingAppsWhenShareMenuItemIsClicked() throws Exception {
         presenter.onMenuItemClick(UserDetailShowActivity.SHARE);
 
         verify(view).shareByMessagingApps();

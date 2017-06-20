@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
@@ -54,6 +53,7 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
     private DatabaseReference mDatabase;
     private String TAG = FeedbackActivity.class.getSimpleName();
     private String feedbackId;
+    private ArrayList<String> feedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +64,12 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
 
         progressBar.setVisibility(VISIBLE);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        feedback = new ArrayList<>();
 
         ValueEventListener feedbackListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<String> feedback = (ArrayList<String>) dataSnapshot.child(FEEDBACK).getValue();
+                feedback = (ArrayList<String>) dataSnapshot.child(FEEDBACK).getValue();
                 feedbackId = Integer.toString(feedback.size());
                 progressBar.setVisibility(GONE);
                 feedbackLayout.setVisibility(VISIBLE);
@@ -81,7 +82,8 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
                 Log.d(TAG, "loadFeedback:onCancelled", databaseError.toException());
             }
         };
-        mDatabase.addListenerForSingleValueEvent(feedbackListener);
+       mDatabase.addValueEventListener(feedbackListener);
+       //mDatabase.addListenerForSingleValueEvent(feedbackListener);
     }
 
     @OnClick(R.id.submit_button)
@@ -127,6 +129,15 @@ public class FeedbackActivity extends AppCompatActivity implements FeedbackView 
         mDatabase.child(FEEDBACK).child(feedbackId).setValue(feedbackText);
     }
 
+    @OnClick(R.id.delete_button)
+    public void onDeleteButtonClick() {
+        for (int i = 0; i < feedback.size(); ++i) {
+            if(feedback.get(i) != null && feedback.get(i).length() < 10 ) {
+                mDatabase.child(FEEDBACK).child(Integer.toString(i)).removeValue();
+            }
+        }
+        finish();
+    }
 
     private boolean isConnectivityAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);

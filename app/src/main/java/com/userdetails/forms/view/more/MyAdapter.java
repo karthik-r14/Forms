@@ -41,14 +41,17 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+        TextView serialNumber;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.my_text);
+            serialNumber = (TextView) itemView.findViewById(R.id.serial_no);
         }
 
         void bind(int listIndex) {
             textView.setText(myList.get(listIndex));
+            serialNumber.setText(String.valueOf(listIndex + 1));
         }
     }
 }

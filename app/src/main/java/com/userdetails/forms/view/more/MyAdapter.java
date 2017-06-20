@@ -4,18 +4,27 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.userdetails.forms.R;
-
 import java.util.ArrayList;
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     private ArrayList<String> myList;
+    private Context context;
+    //private ListItemClickListener itemClickListener;
 
-    public MyAdapter(ArrayList<String> mylist) {
-        this.myList = mylist;
+//    public interface ListItemClickListener {
+//        void onListItemClick(int clickedItemIndex);
+//    }
+
+    public MyAdapter(ArrayList<String> myList, Context context) {
+        this.myList = myList;
+        this.context = context;
+        //itemClickListener = listener;
     }
 
     @Override
@@ -39,7 +48,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return myList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
         TextView textView;
         TextView serialNumber;
 
@@ -47,11 +56,21 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.my_text);
             serialNumber = (TextView) itemView.findViewById(R.id.serial_no);
+            itemView.setOnClickListener(this);
         }
 
         void bind(int listIndex) {
             textView.setText(myList.get(listIndex));
             serialNumber.setText(String.valueOf(listIndex + 1));
+        }
+
+        @Override
+        public void onClick(View v) {
+            //Intent intent = new Intent(context, FormActivity.class);
+            int clickedPosition = getAdapterPosition() + 1;
+            Toast.makeText(context, "item" + clickedPosition + "was clicked", Toast.LENGTH_SHORT).show();
+
+            //itemClickListener.onListItemClick(clickedPosition);
         }
     }
 }

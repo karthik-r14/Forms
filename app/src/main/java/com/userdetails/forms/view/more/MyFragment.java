@@ -32,8 +32,12 @@ public class MyFragment extends Fragment {
 
         ArrayList<String> myList = new ArrayList<>();
         myList.add("data ");
-        myList.add("Hello");
         myList.add("Hi");
+        myList.add("Hello");
+        myList.add("What's up");
+        myList.add("Qwerty");
+        myList.add("wiper");
+        
         recyclerView.setHasFixedSize(true);
         MyAdapter adapter = new MyAdapter(myList, getContext());
         recyclerView.setAdapter(adapter);

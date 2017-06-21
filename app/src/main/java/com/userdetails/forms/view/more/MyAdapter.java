@@ -12,7 +12,9 @@ import android.widget.Toast;
 import com.userdetails.forms.R;
 import java.util.ArrayList;
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
+class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+    public static final int TYPE1 = 0;
+    public static final int TYPE2 = 1;
     private ArrayList<String> myList;
     private Context context;
     //private ListItemClickListener itemClickListener;
@@ -32,10 +34,20 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.my_list_row, parent, false);
-        MyViewHolder viewHolder = new MyViewHolder(view);
+        RecyclerView.ViewHolder viewHolder = null;
 
-        return viewHolder;
+        switch (viewType) {
+            case TYPE1:
+                View v1 = inflater.inflate(R.layout.my_list_row, parent, false);
+                viewHolder = new MyViewHolder(v1);
+                break;
+
+            case TYPE2:
+                View v2 = inflater.inflate(R.layout.my_list_row2, parent, false);
+                viewHolder = new MyViewHolder(v2);
+                break;
+        }
+        return (MyViewHolder) viewHolder;
     }
 
     @Override
@@ -46,6 +58,15 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     @Override
     public int getItemCount() {
         return myList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position % 2 == 0) {
+            return TYPE1;
+        } else {
+            return TYPE2;
+        }
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder implements OnClickListener {

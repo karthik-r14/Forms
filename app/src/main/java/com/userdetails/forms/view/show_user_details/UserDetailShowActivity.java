@@ -26,11 +26,12 @@ import com.userdetails.forms.R;
 import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.FAQs.FAQsActivity;
-import com.userdetails.forms.view.more.MoreActivity;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
 import com.userdetails.forms.view.feedback.FeedbackActivity;
 import com.userdetails.forms.view.form.FormActivity;
+import com.userdetails.forms.view.more.MoreActivity;
 import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
+import com.userdetails.forms.view.scan_barcode.ScanBarcodeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +49,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String PERSON = "Person";
     public static final String SHARE = "Share";
     public static final String MORE = "More";
+    public static final String SCAN_BARCODE = "scan_barcode";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -150,6 +152,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startScanBarcodeActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, ScanBarcodeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -202,34 +210,38 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public boolean onOptionsItemSelected(MenuItem item) {
         boolean internetAvailable = isConnectivityAvailable();
         if (!internetAvailable) {
-            if(item.getItemId() != R.id.share) {
+            if (item.getItemId() != R.id.share) {
                 Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
             }
         }
 
         switch (item.getItemId()) {
             case R.id.about_us:
-                if(internetAvailable)
+                if (internetAvailable)
                     presenter.onMenuItemClick(ABOUT_US);
                 return true;
             case R.id.rate_us:
-                if(internetAvailable)
+                if (internetAvailable)
                     presenter.onMenuItemClick(RATE_US);
                 return true;
             case R.id.feedback:
-                if(internetAvailable)
+                if (internetAvailable)
                     presenter.onMenuItemClick(FEEDBACK);
                 return true;
             case R.id.faqs:
-                if(internetAvailable)
+                if (internetAvailable)
                     presenter.onMenuItemClick(FAQS);
                 return true;
             case R.id.share:
                 presenter.onMenuItemClick(SHARE);
                 return true;
             case R.id.more:
-                if(internetAvailable)
+                if (internetAvailable)
                     presenter.onMenuItemClick(MORE);
+                return true;
+            case R.id.scan_barcode:
+                presenter.onMenuItemClick(SCAN_BARCODE);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

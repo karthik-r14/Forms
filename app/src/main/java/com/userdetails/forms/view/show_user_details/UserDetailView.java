@@ -22,4 +22,6 @@ public interface UserDetailView {
     void shareByMessagingApps();
 
     void startMoreActivity();
+
+    void startScanBarcodeActivity();
 }

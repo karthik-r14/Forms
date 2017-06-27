@@ -99,4 +99,12 @@ public class UserDetailPresenterTest {
 
         verify(view).startMoreActivity();
     }
+
+    @Test
+    public void shouldLaunchScanBarcodeActivityWhenScanBarcodeMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.SCAN_BARCODE);
+
+        verify(view).startScanBarcodeActivity();
+
+    }
 }

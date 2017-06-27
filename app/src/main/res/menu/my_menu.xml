@@ -25,6 +25,11 @@
     android:title="@string/share_the_details"/>
 
   <item
+    android:id="@+id/scan_barcode"
+    android:title="@string/scan_barcode"
+    />
+
+  <item
     android:id="@+id/more"
     android:title="@string/more"/>
 </menu>

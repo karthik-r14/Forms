@@ -54,6 +54,8 @@ public class UserDetailPresenter {
             case UserDetailShowActivity.MORE:
                 view.startMoreActivity();
                 break;
+            case UserDetailShowActivity.SCAN_BARCODE:
+                view.startScanBarcodeActivity();
         }
     }
 }

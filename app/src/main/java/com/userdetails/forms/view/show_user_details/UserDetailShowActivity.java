@@ -210,7 +210,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public boolean onOptionsItemSelected(MenuItem item) {
         boolean internetAvailable = isConnectivityAvailable();
         if (!internetAvailable) {
-            if (item.getItemId() != R.id.share) {
+            if (item.getItemId() != R.id.share && item.getItemId() != R.id.scan_barcode) {
                 Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
             }
         }

@@ -215,6 +215,18 @@
         android:orientation="vertical">
 
 
+        <TextView
+          android:id="@+id/email_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          android:text="@string/email_error"
+          android:textColor="@color/red"
+          android:visibility="gone"
+          />
+
         <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -241,18 +253,6 @@
             android:maxLines="1"/>
 
         </LinearLayout>
-
-        <TextView
-          android:id="@+id/email_error"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center"
-          android:focusable="true"
-          android:focusableInTouchMode="true"
-          android:text="@string/email_error"
-          android:textColor="@color/red"
-          android:visibility="gone"
-          />
       </LinearLayout>
     </android.support.v7.widget.CardView>
 

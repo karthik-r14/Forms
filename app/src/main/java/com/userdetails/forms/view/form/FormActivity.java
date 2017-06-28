@@ -34,6 +34,8 @@ public class FormActivity extends AppCompatActivity implements FormView {
     EditText phoneNumber;
     @BindView(R.id.email)
     EditText email;
+    @BindView(R.id.Heading)
+    TextView heading;
     @BindView(R.id.name_error)
     TextView nameError;
     @BindView(R.id.age_error)
@@ -51,6 +53,17 @@ public class FormActivity extends AppCompatActivity implements FormView {
         setContentView(R.layout.activity_form);
         ButterKnife.bind(this);
         presenter = new FormPresenter(this);
+    }
+
+    @OnClick(R.id.Heading)
+    void onHeadingClick() {
+        if(heading.isSelected()) {
+            heading.setSelected(false);
+            heading.setBackgroundColor(getResources().getColor(R.color.turquoise));
+        }else {
+            heading.setSelected(true);
+            heading.setBackgroundColor(getResources().getColor(R.color.red));
+        }
     }
 
     @OnClick(R.id.submit_button)

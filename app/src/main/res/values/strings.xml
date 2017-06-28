@@ -55,4 +55,7 @@
   <string name="airplane_mode_message">The form app will not work in airplane mode as there will not be any access to internet</string>
   <string name="more">More</string>
   <string name="scan_barcode">Scan barcode</string>
+  <string name="facebook_app_id">854189898062947</string>
+  <string name="fb_login_protocol_scheme">fb854189898062947</string>
+  <string name="facebook_login">Facebook Login</string>
 </resources>

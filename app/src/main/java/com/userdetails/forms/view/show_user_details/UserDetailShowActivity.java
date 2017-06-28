@@ -27,6 +27,7 @@ import com.userdetails.forms.model.Person;
 import com.userdetails.forms.presenter.UserDetailPresenter;
 import com.userdetails.forms.view.FAQs.FAQsActivity;
 import com.userdetails.forms.view.about_us.AboutUsActivity;
+import com.userdetails.forms.view.facebook_login.FacebookLoginActivity;
 import com.userdetails.forms.view.feedback.FeedbackActivity;
 import com.userdetails.forms.view.form.FormActivity;
 import com.userdetails.forms.view.more.MoreActivity;
@@ -50,6 +51,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String SHARE = "Share";
     public static final String MORE = "More";
     public static final String SCAN_BARCODE = "scan_barcode";
+    public static final String FACEBOOK_LOGIN = "facebook_login";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -158,6 +160,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startFacebookLoginActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, FacebookLoginActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -242,6 +250,8 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
             case R.id.scan_barcode:
                 presenter.onMenuItemClick(SCAN_BARCODE);
                 return true;
+            case R.id.facebook_login:
+                presenter.onMenuItemClick(FACEBOOK_LOGIN);
             default:
                 return super.onOptionsItemSelected(item);
         }

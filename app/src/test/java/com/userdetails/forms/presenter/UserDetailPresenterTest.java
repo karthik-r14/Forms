@@ -105,6 +105,12 @@ public class UserDetailPresenterTest {
         presenter.onMenuItemClick(UserDetailShowActivity.SCAN_BARCODE);
 
         verify(view).startScanBarcodeActivity();
+    }
 
+    @Test
+    public void shouldLaunchFacebookLoginActivityWhenFacebookLoginMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.FACEBOOK_LOGIN);
+
+        verify(view).startFacebookLoginActivity();
     }
 }

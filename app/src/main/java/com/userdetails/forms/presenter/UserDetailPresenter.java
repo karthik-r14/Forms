@@ -60,6 +60,10 @@ public class UserDetailPresenter {
                 view.startScanBarcodeActivity();
                 break;
 
+            case UserDetailShowActivity.SENSOR_LIST:
+                view.startSensorListActivity();
+                break;
+
             case UserDetailShowActivity.FACEBOOK_LOGIN:
                 view.startFacebookLoginActivity();
         }

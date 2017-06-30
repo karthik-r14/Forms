@@ -58,4 +58,5 @@
   <string name="facebook_app_id">854189898062947</string>
   <string name="fb_login_protocol_scheme">fb854189898062947</string>
   <string name="facebook_login">Facebook Login</string>
+  <string name="sensors_list">Sensors List</string>
 </resources>

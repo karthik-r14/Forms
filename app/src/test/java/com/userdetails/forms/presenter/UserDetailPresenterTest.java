@@ -113,4 +113,11 @@ public class UserDetailPresenterTest {
 
         verify(view).startFacebookLoginActivity();
     }
+
+    @Test
+    public void shouldLaunchSensorListActivityWhenSensorListMenuItemIsClicked() throws Exception {
+        presenter.onMenuItemClick(UserDetailShowActivity.SENSOR_LIST);
+
+        verify(view).startSensorListActivity();
+    }
 }

@@ -33,6 +33,7 @@ import com.userdetails.forms.view.form.FormActivity;
 import com.userdetails.forms.view.more.MoreActivity;
 import com.userdetails.forms.view.rate_us.RateUsDialogFragment;
 import com.userdetails.forms.view.scan_barcode.ScanBarcodeActivity;
+import com.userdetails.forms.view.sensors.SensorActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +53,7 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     public static final String MORE = "More";
     public static final String SCAN_BARCODE = "scan_barcode";
     public static final String FACEBOOK_LOGIN = "facebook_login";
+    public static final String SENSOR_LIST = "sensor_list";
     @BindView(R.id.name)
     TextView name;
     @BindView(R.id.age)
@@ -166,6 +168,12 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
     }
 
     @Override
+    public void startSensorListActivity() {
+        Intent intent = new Intent(UserDetailShowActivity.this, SensorActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showAlertDialogAndLaunchCamera(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -252,6 +260,10 @@ public class UserDetailShowActivity extends AppCompatActivity implements UserDet
                 return true;
             case R.id.facebook_login:
                 presenter.onMenuItemClick(FACEBOOK_LOGIN);
+                return true;
+            case R.id.sensors_list:
+                presenter.onMenuItemClick(SENSOR_LIST);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -26,4 +26,6 @@ public interface UserDetailView {
     void startScanBarcodeActivity();
 
     void startFacebookLoginActivity();
+
+    void startSensorListActivity();
 }
